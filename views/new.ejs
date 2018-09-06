@@ -1,0 +1,54 @@
+<%include partials/header%>
+
+<h3>This is the new route</h3>
+
+
+<div class="container">
+    <form action="/create/new" method="POST">
+        <h5>Bot Talks</h5>
+        <input style="display: block" type="text" value="Hi"                                name="bot[talk][0]">
+        <input style="display: block" type="text" value="How u is?"                         name="bot[talk][0]">
+        
+        <br>
+        <h5>Student Button 1</h5>
+        <input style="display: block" type="text" value="Good"                              name="bot[student][decision][0]">
+        <input style="display: block" type="text" value="Answer1"                              name="bot[student][answer][0]">
+        <input style="display: block" type="text" value="Answer2"                              name="bot[student][answer][0]">
+
+        <input style="display: block" type="text" value="Bad"                              name="bot[student][decision][1]">
+        <input style="display: block" type="text" value="Response1"                              name="bot[student][answer][1]">
+        <input style="display: block" type="text" value="Response2"                              name="bot[student][answer][1]">
+        <input style="display: block" type="text" value="Response3"                              name="bot[student][answer][1]">
+        
+        <br>
+
+        <h5>Bot Explains 1</h5>
+        <!-- <input style="display: block" type="text" value="Cool!"                             name="bot[student][0][decision][0][answer]"> -->
+
+        <!-- <input style="display: block" type="text" value="Lets keep going"                   name="bot[student][decision][answer]"> -->
+        
+        <br>
+        
+
+
+
+
+
+
+
+
+
+
+
+        <!-- <h5>Student Button 2</h5>
+        <input style="display: block" type="text" value="Bad"                               name="bot[student][1]">
+
+        <h5>Bot Explains 2</h5>
+        <input style="display: block" type="text" value="So sad!"                           name="bot[student][1]">
+        <input style="display: block" type="text" value="We will move forward regardless"   name="bot[student][1]"> -->
+        
+        <button type="submit">Submit</button>
+    </form>
+</div>
+
+<%include partials/footer%>

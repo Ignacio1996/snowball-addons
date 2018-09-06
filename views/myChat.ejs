@@ -1,0 +1,116 @@
+<%include partials/header%>
+
+<p>
+    <%=chat%>
+</p>
+
+<!-- Display everything, implement logic in style -->
+
+<% for (var index = 0; index < chat.talk.length; index++){ %>
+
+
+    <!-- Print all bot has to say -->
+    <%for (var bot = 0; bot < chat.talk[index].length + 1; bot++){%>
+    <p class="chatBotTalks" style="display: none">
+        <%=chat.talk[index][bot]%>
+    </p>
+    <%} %>
+
+    <!-- Print all the student decisions, along with the answer string -->
+    <%for (var student = 0; student < chat.talk[index].length; student++){%>
+
+        <!-- Gets id and makes the things below show up -->
+        <button id="chatButton<%=student%>" class="" onclick="displayAnswer(this.id)" style="display: inline">
+            <%=chat.student.decision[student]%>
+        </button> 
+
+
+    <!-- Bot Answers array corresponding to 0 -->
+    
+        <%for (var answer = 0; answer < chat.student.answer.length; answer++){%>
+            <p style="display: none">
+                <%=chat.student.answer[student][answer]%>
+            </p>
+            <%}%>
+    
+            
+            <script type="text/javascript">
+            // Bot answers pressed button
+                function displayAnswer(element){
+                    element = '#' + element
+                    $(element).next().css("display", "block")
+                }
+                
+            </script>
+
+   
+
+    <%} %>
+
+<% } %>
+
+<script>
+    //gets all the bot chats
+    var chats = document.getElementsByClassName('chatBotTalks');
+    // iterates through each text and animates it  
+    for (let index = 0; index < chats.length; index++) {
+        const element = chats[index];
+        setTimeout(function () {
+            element.style.display = 'block'
+        }, 500 );
+    }
+
+    
+    
+
+
+</script>
+
+<style media="screen">
+    /* .chatBotTalks {
+        position: relative;
+        animation-name: chatting;
+        animation-duration: 3s;
+    }
+    .studentAnswer {
+        position: relative;
+        animation-name: answering;
+        animation-duration: 3s;
+    }
+
+    @keyframes chatting {
+        0% {
+
+            left: -20px;
+            top: 0px;
+        }
+
+        25% {
+
+            left: 15px;
+            top: 0px;
+        }
+
+    }
+    @keyframes answering {
+        0% {
+
+            left: -20px;
+            top: 0px;
+        }
+
+        25% {
+
+            left: 15px;
+            top: 0px;
+        }
+
+    } */
+</style>
+
+<!-- Loop through prompts and display the options -->
+
+
+<!-- Once option is chosen, set the variable to the button 0 or 1 value, loop through corresponding array -->
+
+<%include partials/footer%>
