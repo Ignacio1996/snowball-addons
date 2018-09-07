@@ -2,12 +2,14 @@
 
 <p>
     <%=chat%>
+
+    <% var hello = "hey" %>
+    <%=hello  %> 
 </p>
 
 <!-- Display everything, implement logic in style -->
 
 <% for (var index = 0; index < chat.talk.length; index++){ %>
-
 
     <!-- Print all bot has to say -->
     <%for (var bot = 0; bot < chat.talk[index].length + 1; bot++){%>
