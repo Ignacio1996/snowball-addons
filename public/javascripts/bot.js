@@ -1,11 +1,12 @@
+var formNum;
+
 function addBotForm(){
-    var formNum = document.getElementsByClassName('botForm').length;
-    console.log(formNum);
+    formNum = document.getElementsByClassName('botForm').length;
     var newBotForm = `
     <div class="botForm">
     <div class="botText">
     <h5>Bot Talks1</h5>
-    <input style="display: block" type="text" value="Bot conversation" name="bot[talk][${formNum}]">
+    <input class="botText${formNum}" style="display: block" type="text" value="Bot conversation" name="bot[talk][${formNum}]">
     <button type="button">Bot Text +</button>
     </div>
     
@@ -27,8 +28,6 @@ function addBotForm(){
 }
 
 function addBotText(element){
-    var formNum = document.getElementsByClassName('botForm').length;
-    console.log(element.parentNode);
-    var newText = `<input style="display: block" type="text" value="Bot conversation" name="bot[talk][${formNum}]">`
-    element.insertAdjacentHTML('beforeend', newText);
+    
+    
 }
