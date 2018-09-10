@@ -6,3 +6,8 @@ body {
 a {
   color: #00B7FF;
 }
+
+.botForm{
+  border-style: dotted;
+  margin: 10px
+}

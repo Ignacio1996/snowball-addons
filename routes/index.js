@@ -30,6 +30,12 @@ router.get('/new', (req, res) => {
   res.render('new');
 });
 
+//New 2 Route
+router.get('/new2', (req, res) => {
+  res.render('new2');
+});
+
+
 //Create Route
 router.post('/create/new', (req, res) => {
   console.log("Reached here!");
