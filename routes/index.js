@@ -54,59 +54,17 @@ router.post('/create/new', (req, res) => {
 });
 
 
-//Show individual chat
-router.get('/index/:id', (req,res)=>{
-
-  Bot.findById(req.params.id, (err, chat)=>{
-    if (err) {
-      console.log(err);
-    } else {
-      var choice = 1;
-      //iterate through things in the console
-      console.log(chat);
-      //go through the talk elements first, should match bot's elements
-      chat.talk.forEach((element, n) => {
-        element.forEach((str) =>{
-          //prints whatever bot has to say first
-          console.log(str);
-        })
-        //shows options to the user
-        chat.student.decision.forEach(el =>{
-          console.log(el);
-        })
-        // print the choice
-        console.log("Chose", choice);
-        
-        // Once answer is chosen, loop through corresponding array
-        chat.student.answer[choice].forEach(answer =>{
-          console.log(answer);
-          
-        });
-        
-      });
-
-      const myChat = Object.keys(chat)
-
-      res.render('myChat', {chat: chat});    
-    }
-  });
-
-  
-});
-
 
 // Chat
 router.get('/index/chat', (req,res)=>{
-  Bot.find({}, (err, text)=>{
-    if (err) {
-      console.log(err);
-    } else {
-      console.log();
+  Bot.find({})
+    .then((chat)=>{
+      console.log(chat);
       
-      res.render('chat', {text: text});
-    }
-  })
-  
+      res.render("myChat", {chat: chat});
+    }).catch((err)=>{return(err);
+    })
+
 })
 
 
