@@ -7,30 +7,7 @@
 <div class="container">
     <form action="/create/new" method="POST">
 
-        <div class="botForm">
-            <div class="botText">
-                <h5>Bot Talks 1</h5>
-                <input style="display: block" type="text" value="Bot conversation" name="bot[talk][0]">
-                <button type="button" onclick="addBotText(this)">Bot Text +</button>
-            </div>
-
-            <br>
-
-            <div class="userForm">
-                <h5>Student Button 1</h5>
-                <input style="display: block" type="text" value="Good1" name="bot[student][decision][0]">
-                <br>
-                <div class="botAnswers">
-                    <h5>Bot Answers 1</h5>
-                    <input style="display: block" type="text" value="Good Answer1" name="bot[student][answer][0][0]">
-                    <button type="button" onclick="addBotAnswer(this)">Bot Answer +</button>
-                </div>
-                <br>
-                <button type="button" onclick="addStudentForm(this)">Student Decision +</button>
-            </div>
-            <br>
-        </div>
-        
+        <div class="botForm"></div>
         <button type="button" onclick="addBotForm()">Bot Form +</button>
         <br><br>
         <button type="submit">Submit</button>
