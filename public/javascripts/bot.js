@@ -6,7 +6,7 @@ function addBotForm() {
     <div class="botForm">
     <div class="botText">
         <h5>Bot Talks ${formNum + 1}</h5>
-        <input class="botText${formNum}" style="display: block" type="text" value="Bot conversation" name="bot[talk][${formNum}]">
+        <input class="botText${formNum}" style="display: block" type="text" value="Bot conversation${formNum}" name="bot[talk][${formNum}]">
         <button type="button" onclick="addBotText(this)">Bot Text +</button>
     </div>
     
@@ -18,9 +18,11 @@ function addBotForm() {
         <br>
         <div class="botAnswers">
             <h5>Bot Answers ${formNum+1}</h5>
-            <input style="display: block" type="text" value="Good Answer1"  name="bot[student][answer][${formNum}][0]">
+            <input style="display: block" type="text" value="${formNum+1}"  name="bot[student][answer][${formNum}][0]">
             <button type="button" onclick="addBotAnswer(this)">Bot Answer +</button>
         </div>
+        <br>
+        <button type="button" onclick="addStudentForm(this)">Student Decision +</button>
     
     </div>
     <br>
@@ -35,7 +37,7 @@ function addBotText(element) {
     console.log("form num:", formNum);
     
     var newBotText = `
-        <input style="display: block" type="text" value="Bot conversation" name="bot[talk][${formNum}]">`;
+        <input style="display: block" type="text" value="Bot ${formNum}" name="bot[talk][${formNum}]">`;
     element.parentNode.insertAdjacentHTML('beforeend', newBotText);
 
 }
@@ -47,18 +49,18 @@ function addBotAnswer(element){
     element.parentNode.insertAdjacentHTML('beforeend', newStudentAnswer);
 }
 
-var studentFormCounter = document.getElementsByClassName;
 
-function addStudentForm(element){
+
+function addStudentForm(element){  
     console.log(element.parentNode);
     var newStudentForm =`
     <div class="userForm">
         <h5>Student Button 1</h5>
-        <input style="display: block" type="text" value="Good1" name="bot[student][decision][0]">
+        <input style="display: block" type="text" value="Good1"             name="bot[student][decision][${formNum}]">
         <br>
         <div class="botAnswers">
             <h5>Bot Answers 1</h5>
-            <input style="display: block" type="text" value="Good Answer1" name="bot[student][answer][0][0]">
+            <input style="display: block" type="text" value="Good Answer1"  name="bot[student][answer][${formNum}][0]">
             <button type="button" onclick="addBotAnswer(this)">Bot Answer +</button>
         </div>
         <br>
