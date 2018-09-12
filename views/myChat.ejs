@@ -1,6 +1,11 @@
 <%include partials/header%>
 
 <h1>Hello world</h1>
+<p>Chat</p>
+<%=chat%> 
+<br>
+<br>
+<h1>Conversation</h1>
 <%for (let chatNum = 0; chatNum < chat.length; chat++){%>
     <%for (let botText = 0; botText < chat[chatNum].talk.length; botText++){%>
         <!-- Bot  -->
@@ -10,8 +15,9 @@
         <%for (let studentResponse = 0; studentResponse < chat[chatNum].student.decision.length; studentResponse++){%>
             <p> <strong>Choices</strong> </p>
             <%for(var botResponse = 0; botResponse < chat[chatNum].student.decision[studentResponse].length; botResponse++ ){%>
-            <!-- Student Choices-->
-            <p><%=chat[chatNum].student.decision[studentResponse][botResponse]%></p>
+            <!-- Student Choice Buttons Loop-->
+            <button class="btn btn-primary"><%=chat[chatNum].student.decision[studentResponse][botResponse]%></p></button>
+                <!--Bot Answers to Buttons Loop  -->
                 <%for(var studentAnswer = 0; studentAnswer < 1; studentAnswer++){ %>
                     <%for(var chatResponse = 0; chatResponse <= chat[chatNum].student.answer[chatNum][botResponse].length; chatResponse++){%>
                         <p><%=chat[chatNum].student.answer[studentResponse][botResponse][chatResponse]%></p>
