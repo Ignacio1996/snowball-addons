@@ -6,13 +6,17 @@
 <br>
 <br>
 <h1>Conversation</h1>
+
+
 <%for (let chatNum = 0; chatNum < chat.length; chat++){%>
-    <%for (let botText = 0; botText < chat[chatNum].talk.length; botText++){%>
+
+    <%for (var botText = 0; botText < chat[chatNum].talk.length; botText++){%>
         <!-- Bot  -->
         <h3>Bot</h3>
-        <p><%=chat[chatNum].talk[botText]%></p>
+        <!-- Loops through each bot chat array -->
+        <p><%=chat[chatNum].talk[botText]%></p> <!--At array 0-->
         <!-- Student Choices-->
-        <%for (let studentResponse = 0; studentResponse < chat[chatNum].student.decision.length; studentResponse++){%>
+        <%for (var studentResponse = 0; studentResponse < chat[chatNum].student.decision.length; studentResponse++){%>
             <p> <strong>Choices</strong> </p>
             <%for(var botResponse = 0; botResponse < chat[chatNum].student.decision[studentResponse].length; botResponse++ ){%>
             <!-- Student Choice Buttons Loop-->
