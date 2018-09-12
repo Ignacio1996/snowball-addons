@@ -8,23 +8,26 @@
 <h1>Conversation</h1>
 
 
-<%for (let chatNum = 0; chatNum < chat.length; chat++){%>
-
+<%for (let chatNum = 0; chatNum < chat.length; chatNum++){%>
     <%for (var botText = 0; botText < chat[chatNum].talk.length; botText++){%>
         <!-- Bot  -->
         <h3>Bot</h3>
         <!-- Loops through each bot chat array -->
-        <p><%=chat[chatNum].talk[botText]%></p> <!--At array 0-->
+        <%for (var botTextNum = 0; botTextNum < chat[chatNum].talk[botText].length; botTextNum++){ %>
+        <p><%=chat[chatNum].talk[botText][botTextNum]%></p> <!--At array 0-->
+        <%}%>
         <!-- Student Choices-->
-        <%for (var studentResponse = 0; studentResponse < chat[chatNum].student.decision.length; studentResponse++){%>
+        <!-- Should go in only one time to get corresponding text -->
+        <%for (var studentResponse = 0; studentResponse < 1; studentResponse++){%>
             <p> <strong>Choices</strong> </p>
-            <%for(var botResponse = 0; botResponse < chat[chatNum].student.decision[studentResponse].length; botResponse++ ){%>
+            <%for(var botResponse = 0; botResponse < chat[chatNum].student.decision[chatNum].length; botResponse++ ){%>
             <!-- Student Choice Buttons Loop-->
-            <button class="btn btn-primary"><%=chat[chatNum].student.decision[studentResponse][botResponse]%></p></button>
+            
+                <button class="btn btn-primary"><%=chat[chatNum].student.decision[botText][botResponse]%></p></button>
                 <!--Bot Answers to Buttons Loop  -->
                 <%for(var studentAnswer = 0; studentAnswer < 1; studentAnswer++){ %>
-                    <%for(var chatResponse = 0; chatResponse <= chat[chatNum].student.answer[chatNum][botResponse].length; chatResponse++){%>
-                        <p><%=chat[chatNum].student.answer[studentResponse][botResponse][chatResponse]%></p>
+                    <%for(var chatResponse = 0; chatResponse <= chat[chatNum].student.answer[botText][botResponse].length; chatResponse++){%>
+                        <p><%=chat[chatNum].student.answer[botText][botResponse][chatResponse]%></p>
                     <%}%>
                 <%}%>
             <%}%>
@@ -32,9 +35,6 @@
     <%}%>
 <%}%>
 
-
-
-dfafdadsf
 
 
 <%include partials/footer%>
