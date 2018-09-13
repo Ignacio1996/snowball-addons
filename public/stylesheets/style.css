@@ -28,7 +28,49 @@ a {
 }
 
 button{
-  display: inline;
+  display: inline-flex;
   margin: 5px;
 }
 
+
+
+.bot{
+  background-color: rgb(0, 123, 255);
+  position: relative;
+  border-radius: 20px;
+  padding: 10px;
+  color: white;
+  
+  animation-name: example;
+  animation-duration: 0.3s;
+  
+  
+
+}
+
+@keyframes example {
+    0%   {background-color:rgb(0, 123, 255); left:-200px; top:0px; display: "none"}
+    100%  {background-color:rgb(0, 123, 255); left:0px; top:0px;}
+}
+
+/* .answer{
+  background-color: rgb(0, 123, 255);
+  position: relative;
+  border-radius: 20px;
+  padding: 10px;
+  color: white;
+  
+  animation-name: answer;
+  animation-duration: 1s;
+  animation-delay: 0.5s;
+
+}
+
+@keyframes answer {
+  0%   {background-color:rgb(0, 123, 255); left:-200px; top:0px;}
+  100%  {background-color:rgb(0, 123, 255); left:0px; top:0px;}
+} */
+
+.interaction{
+  max-width: 500px;
+}

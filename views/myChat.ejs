@@ -11,9 +11,7 @@
 
 <%for (let chatNum = 0; chatNum < chat.length; chatNum++){%>
     <%for (var botText = 0; botText < chat[chatNum].talk.length; botText++){%>
-        <div style="display: none" class="interaction">
-        <!-- Bot  -->
-        <h3>Bot</h3>
+        <div style="display: none" class="interaction">        
         <!-- Loops through each bot chat array -->
         <div class="bot">
         <%for (var botTextNum = 0; botTextNum < chat[chatNum].talk[botText].length; botTextNum++){ %>
@@ -23,7 +21,6 @@
         <!-- Student Choices-->
         <!-- Should go in only one time to get corresponding text -->
         <%for (var studentResponse = 0; studentResponse < 1; studentResponse++){%>
-            <p> <strong>Choices</strong> </p>
             <%for(var botResponse = 0; botResponse < chat[chatNum].student.decision[chatNum].length; botResponse++ ){%>
             <!-- Student Choice Buttons Loop-->
             <div class="choice">
