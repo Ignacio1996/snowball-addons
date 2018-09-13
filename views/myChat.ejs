@@ -8,9 +8,10 @@
 <h1>Conversation</h1>
 
 
+
 <%for (let chatNum = 0; chatNum < chat.length; chatNum++){%>
     <%for (var botText = 0; botText < chat[chatNum].talk.length; botText++){%>
-        <div class="interaction">
+        <div style="display: none" class="interaction">
         <!-- Bot  -->
         <h3>Bot</h3>
         <!-- Loops through each bot chat array -->

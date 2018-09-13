@@ -19,6 +19,16 @@ a {
 
 .interaction{
   margin: 10px;
-  box-shadow:10px 10px 20px 10px grey;
+  box-shadow:10px 10px 20px 2px grey;
   padding: 15px
 }
+
+.choice{
+  margin-left:auto; margin-right:0;
+}
+
+button{
+  display: inline;
+  margin: 5px;
+}
+
