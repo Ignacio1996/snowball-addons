@@ -78,3 +78,4 @@ function addStudentForm(element){
     element.parentNode.insertAdjacentHTML('afterend', newStudentForm);
     
 }
+
