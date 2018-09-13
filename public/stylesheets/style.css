@@ -28,13 +28,13 @@ a {
 }
 
 button{
-  display: inline-flex;
-  margin: 5px;
+  display: inline-flex;interactions[interactionNumber].style.display = "block";
+  button.disabled = true;
 }
 
 
 
-.bot{
+.botText{
   background-color: rgb(0, 123, 255);
   position: relative;
   border-radius: 20px;

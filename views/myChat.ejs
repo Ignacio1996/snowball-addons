@@ -15,16 +15,17 @@
         <!-- Loops through each bot chat array -->
         <div class="bot">
         <%for (var botTextNum = 0; botTextNum < chat[chatNum].talk[botText].length; botTextNum++){ %>
-<!--Bot--> <p><%=chat[chatNum].talk[botText][botTextNum]%></p> <!--At array 0-->
+<!--Bot--> <p class="botText"><%=chat[chatNum].talk[botText][botTextNum]%></p> <!--At array 0-->
         <%}%>
         </div>
         <!-- Student Choices-->
         <!-- Should go in only one time to get corresponding text -->
+        
         <%for (var studentResponse = 0; studentResponse < 1; studentResponse++){%>
             <%for(var botResponse = 0; botResponse < chat[chatNum].student.decision[chatNum].length; botResponse++ ){%>
             <!-- Student Choice Buttons Loop-->
             <div class="choice">
-<!--Buttons-->  <button onclick="displayAnswers(this)" class="btn btn-primary"><%=chat[chatNum].student.decision[botText][botResponse]%></p></button>
+<!--Buttons-->  <button onclick="displayAnswers(this)" class="btn btn-primary" style="display: inline-flex; margin: 5px"><%=chat[chatNum].student.decision[botText][botResponse]%></p></button>
             </div>
 
                 <!--Bot Answers to Buttons Loop  -->
