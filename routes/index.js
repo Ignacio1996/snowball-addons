@@ -62,7 +62,9 @@ router.get('/index/chat', (req,res)=>{
       console.log(chat);
       
       res.render("myChat", {chat: chat});
-    }).catch((err)=>{return(err);
+    })
+    
+    .catch((err)=>{return(err);
     })
 
 })
