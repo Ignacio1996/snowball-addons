@@ -14,7 +14,7 @@ function addBotForm() {
 
     <div class="userForm">
         <h5 >Student Button 1</h5>
-        <input style="display: block" type="text" value="Yes! ${formNum}"name="bot[student][decision][${formNum}]">
+        <input style="display: block" type="text" value="Yes!"name="bot[student][decision][${formNum}]">
         <br>
         <div class="botAnswers">
             <h5>Bot Answers ${formNum+1}</h5>
