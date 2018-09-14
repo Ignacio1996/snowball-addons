@@ -12,10 +12,20 @@ function displayAnswers(button) {
 
     });
     interactionNumber++;
-    var parent = button.parentNode.parentNode;
+    var parent = button.parentNode.parentNode.parentNode;
     var interactions = document.getElementsByClassName(parent.className);
     // Displays next interaction
     button.disabled = true;
+    // Finds the buttons in the interaction
+    var buttonsInChoice = button.parentNode.parentNode.getElementsByTagName("button");
+    for (let eachButton = 0; eachButton < buttonsInChoice.length; eachButton++) {
+        console.log(buttonsInChoice[eachButton]);
+        if (!buttonsInChoice[eachButton].disabled) {
+            buttonsInChoice[eachButton].style.display = "none";
+        }
+    }
+    
+    
     setTimeout(() => {
         interactions[interactionNumber].style.display = "block";
     }, 600)

@@ -20,7 +20,7 @@
         </div>
         <!-- Student Choices-->
         <!-- Should go in only one time to get corresponding text -->
-        
+        <div class="buttons">
         <%for (var studentResponse = 0; studentResponse < 1; studentResponse++){%>
             <%for(var botResponse = 0; botResponse < chat[chatNum].student.decision[chatNum].length; botResponse++ ){%>
             <!-- Student Choice Buttons Loop-->
@@ -34,10 +34,11 @@
                     <%for(var chatResponse = 0; chatResponse <= chat[chatNum].student.answer[botText][botResponse].length; chatResponse++){%>
 <!--Answers-->              <p style="display: none"><%=chat[chatNum].student.answer[botText][botResponse][chatResponse]%></p>
                 <%}%>
-                    </div>
+        </div>
                 <%}%>
             <%}%>
         <%}%>
+        </div>
     </div>
     <%}%>
 <%}%>
