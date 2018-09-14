@@ -1,19 +1,14 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
+<%include partials/header%>
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
-    <a href="/new">New bot</a>
+    <br>
+    <a class="btn btn-primary" href="/index/chat">Chat</a>
+    <br><br>
     <a href="/new2">New bot V2</a>
-
-    <a href="/index/chat">Chat</a>
     <h5>Display Available Interactions</h5>
     <%chat.forEach(function(chat, n){%>
       <a style="display: block" href="/index/<%=chat._id%>">Chat <%=n%></a>
       <%});%>
   </body>
 </html>
+<%include partials/footer%>

@@ -4,42 +4,69 @@ var interactionNumber = 0;
 // Button pressed displays answers
 // Also shows the next interaction
 // Button gets disabled after pressing
-// Both buttons should be disabled
-function displayAnswers(button) {  //displays answers and next interaction
-    var nextElement = button.parentNode.nextElementSibling.children;
-    Object.keys(nextElement).forEach((key) => {
-        nextElement[key].style.display = "block";
+// Both buttons should be disabled, one hidden
+function displayAnswers(button) { //displays answers and next interaction
+    // var nextElement = button.parentNode.nextElementSibling.children;
+    // Object.keys(nextElement).forEach((key) => {
+    //     nextElement[key].style.display = "block";
 
-    });
+    // });
     interactionNumber++;
     var parent = button.parentNode.parentNode.parentNode;
     var interactions = document.getElementsByClassName(parent.className);
     // Displays next interaction
     button.disabled = true;
+
     // Finds the buttons in the interaction
     var buttonsInChoice = button.parentNode.parentNode.getElementsByTagName("button");
     for (let eachButton = 0; eachButton < buttonsInChoice.length; eachButton++) {
-        console.log(buttonsInChoice[eachButton]);
         if (!buttonsInChoice[eachButton].disabled) {
+            //Hides the rest of the buttons
             buttonsInChoice[eachButton].style.display = "none";
         }
     }
-    
-    
-    setTimeout(() => {
+
+    //display next interaction
+    setTimeout(()=>{
         interactions[interactionNumber].style.display = "block";
-        console.log(interactions[interactionNumber]);
-        
-    }, 600)
+    }, 3000);
 
+    //ANSWERS execution
+    var botTextAnswers = button.parentNode.nextElementSibling.children;
+    console.log(botTextAnswers);
+    Object.keys(botTextAnswers).forEach((key, n)=>{
+        setTimeout(()=>{
+            botTextAnswers[key].style.display = "block";
+        }, 800 * n);
 
+    })
+    
+    //this long variable accesses what the bot has to say first: 
+    //Displays next botText in order
+    var botDiv = interactions[interactionNumber].children[0].children; // current div class="bot"
+    //delay button execution
+    setTimeout(()=>{
+        Object.keys(botDiv).forEach((key, n) => {
+            setTimeout(() => {
+                botDiv[key].style.display = "";
+            }, 1000 * n);
+            
+        });
+    }, 3000);
 }
 
 
 
 //Displays first element of array of interactions
 function displayFirstElement() {
-    var interactions = document.getElementsByClassName('interaction');
-    interactions[0].style.display = "";
-}
+    //first interaction
+    var interactions = document.getElementsByClassName('interaction')[0];
+    interactions.style.display = "";
+    var pChildren = interactions.children[0].children;
+    Object.keys(pChildren).forEach((key, n)=>{
+        setTimeout(() => {            
+            pChildren[key].style.display = "";
+        }, 1000 * n);
 
+    });
+}
