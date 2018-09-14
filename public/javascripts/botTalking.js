@@ -5,7 +5,7 @@ var interactionNumber = 0;
 // Also shows the next interaction
 // Button gets disabled after pressing
 // Both buttons should be disabled
-function displayAnswers(button) {
+function displayAnswers(button) {  //displays answers and next interaction
     var nextElement = button.parentNode.nextElementSibling.children;
     Object.keys(nextElement).forEach((key) => {
         nextElement[key].style.display = "block";
@@ -28,6 +28,8 @@ function displayAnswers(button) {
     
     setTimeout(() => {
         interactions[interactionNumber].style.display = "block";
+        console.log(interactions[interactionNumber]);
+        
     }, 600)
 
 
@@ -41,7 +43,3 @@ function displayFirstElement() {
     interactions[0].style.display = "";
 }
 
-
-function displayBotAnimation() {
-
-}
