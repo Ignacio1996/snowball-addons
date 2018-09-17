@@ -47,13 +47,13 @@ button {
 
 .botText {
   background-color: rgb(0, 123, 255);
+  display: inline-block;
   position: relative;
   border-radius: 20px;
   padding: 10px;
   color: white;
   animation-name: botTextAnimation;
   animation-duration: 0.3s;
-  display: inline-block;
 }
 
 
@@ -62,6 +62,7 @@ button {
   position: relative;
   border-radius: 20px;
   padding: 10px;
+  display: inline-block;
   color: white;
   
   animation-name: botTextAnimation;

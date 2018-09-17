@@ -36,7 +36,7 @@ function displayAnswers(button) { //displays answers and next interaction
     console.log(botTextAnswers);
     Object.keys(botTextAnswers).forEach((key, n)=>{
         setTimeout(()=>{
-            botTextAnswers[key].style.display = "block";
+            botTextAnswers[key].style.display = "inline-block";
         }, 800 * n);
 
     })
