@@ -3,6 +3,10 @@ var router = express.Router();
 var Bot = require('../models/bot.js');
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
+var methodOverride = require('method-override');
+
+
+router.use(methodOverride('_method'));
 
 router.use(bodyParser.urlencoded({
   extended: true
@@ -66,8 +70,17 @@ router.get('/index/chat', (req,res)=>{
     
     .catch((err)=>{return(err);
     })
-
 })
 
+// Delete Route
+router.delete('/index/chat/delete/:id', (req,res)=>{
+  Bot.findByIdAndRemove(req.params.id, (err)=>{
+    if (err) {
+      console.log(err)
+    } else {
+      res.redirect('/');
+    }
+  })
+});
 
 module.exports = router;

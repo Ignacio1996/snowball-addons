@@ -1,3 +1,10 @@
+.botForm {
+    margin: 10px;
+    box-shadow:2px 2px 11px 1px lightgrey;
+    padding: 10px
+  }
+  
+
 .botTalks {
     display: block;
     box-shadow: -1px -1px 5px 0.5px grey;
