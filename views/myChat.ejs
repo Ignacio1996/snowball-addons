@@ -8,40 +8,42 @@
 <h1>Conversation</h1>
 
 
-
-<%for (let chatNum = 0; chatNum < chat.length; chatNum++){%>
-    <%for (var botText = 0; botText < chat[chatNum].talk.length; botText++){%>
-        <div style="display: none" class="interaction">        
-        <!-- Loops through each bot chat array -->
-        <div class="bot">
-        <%for (var botTextNum = 0; botTextNum < chat[chatNum].talk[botText].length; botTextNum++){ %>
-<!--Bot--> <p style="display: none" class="botText"><%=chat[chatNum].talk[botText][botTextNum]%></p> <!--At array 0-->
-        <%}%>
-        </div>
-        <!-- Student Choices-->
-        <!-- Should go in only one time to get corresponding text -->
-        <div class="buttons">
-        <%for (var studentResponse = 0; studentResponse < 1; studentResponse++){%>
-            <%for(var botResponse = 0; botResponse < chat[chatNum].student.decision[chatNum].length; botResponse++ ){%>
-            <!-- Student Choice Buttons Loop-->
-            <div class="choice">            
-<!--Buttons-->  <button onclick="displayAnswers(this)" class="btn btn-success" style="display: inline-flex; margin: 5px"><%=chat[chatNum].student.decision[botText][botResponse]%></p></button>
+<div class="container" id="scroller">
+    <%for (let chatNum = 0; chatNum < chat.length; chatNum++){%>
+        <%for (var botText = 0; botText < chat[chatNum].talk.length; botText++){%>
+            <div style="display: none" class="interaction">        
+            <!-- Loops through each bot chat array -->
+            <div class="bot">
+            <%for (var botTextNum = 0; botTextNum < chat[chatNum].talk[botText].length; botTextNum++){ %>
+    <!--Bot--> <p style="display: none" class="botText"><%=chat[chatNum].talk[botText][botTextNum]%></p> <!--At array 0-->
+            <%}%>
             </div>
+            <!-- Student Choices-->
+            <!-- Should go in only one time to get corresponding text -->
+            <div class="buttons">
+            <%for (var studentResponse = 0; studentResponse < 1; studentResponse++){%>
+                <%for(var botResponse = 0; botResponse < chat[chatNum].student.decision[chatNum].length; botResponse++ ){%>
+                <!-- Student Choice Buttons Loop-->
+                <div class="choice">            
+    <!--Buttons-->  <button onclick="displayAnswers(this)" class="btn btn-success" style="display: inline-flex; margin: 5px"><%=chat[chatNum].student.decision[botText][botResponse]%></p></button>
+                </div>
 
-                <!--Bot Answers to Buttons Loop  -->
-                <%for(var studentAnswer = 0; studentAnswer < 1; studentAnswer++){ %>
-                    <div class="answer">
-                    <%for(var chatResponse = 0; chatResponse <= chat[chatNum].student.answer[botText][botResponse].length-1; chatResponse++){%>
-<!--Answers-->              <p class="botTextAnswer" style="display: none"><%=chat[chatNum].student.answer[botText][botResponse][chatResponse]%></p>
-                <%}%>
-        </div>
+                    <!--Bot Answers to Buttons Loop  -->
+                    <%for(var studentAnswer = 0; studentAnswer < 1; studentAnswer++){ %>
+                        <div class="answer">
+                        <%for(var chatResponse = 0; chatResponse <= chat[chatNum].student.answer[botText][botResponse].length-1; chatResponse++){%>
+    <!--Answers-->              <p class="botTextAnswer botText" style="display: none"><%=chat[chatNum].student.answer[botText][botResponse][chatResponse]%></p>
+                    <%}%>
+            </div>
+                    <%}%>
                 <%}%>
             <%}%>
-        <%}%>
+            </div>
         </div>
-    </div>
+        <%}%>
     <%}%>
-<%}%>
+</div>
+
 
 
 

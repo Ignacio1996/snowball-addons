@@ -74,3 +74,12 @@ function addStudentForm(element){
     
 }
 
+
+
+
+function updateScroll(){
+    var element = document.getElementById('scroller');
+    element.scrollTop = element.scrollHeight;
+}
+
+setInterval(updateScroll, 500);

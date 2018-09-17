@@ -8,6 +8,11 @@ a {
   color: #00B7FF;
 }
 
+.container{
+  overflow: auto;
+  max-height: 60vh;
+}
+
 
 
 .userForm {
@@ -16,8 +21,8 @@ a {
 
 .interaction {
   margin: 10px;
-  box-shadow: 5px 5px 20px 2px grey;
-  padding: 15px
+  /* box-shadow: 5px 5px 20px 2px grey; */
+  padding: 0;
 }
 
 .choice {
