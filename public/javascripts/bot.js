@@ -39,6 +39,7 @@ function addBotForm() {
 function addTextClone(element) {    
     var newBotText = element.previousElementSibling.cloneNode(true);
     newBotText.style.display = "block";
+    newBotText.value = "";
     element.parentNode.insertBefore(newBotText, element.nextSibling);
 }
 
