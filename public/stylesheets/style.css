@@ -11,12 +11,21 @@ a {
 .container{
   overflow: auto;
   max-height: 60vh;
+  max-width: 50%;
+  margin-left: auto;
 }
 
+p{
+  display: inline-block;
+}
 
 
 .userForm {
   margin: 10px;
+}
+
+.btn{
+  border-radius: 20px;
 }
 
 .interaction {
@@ -32,6 +41,7 @@ a {
 
 button {
   display: inline-flex;
+  border-radius: 20;
 }
 
 
@@ -43,6 +53,7 @@ button {
   color: white;
   animation-name: botTextAnimation;
   animation-duration: 0.3s;
+  display: inline-block;
 }
 
 
