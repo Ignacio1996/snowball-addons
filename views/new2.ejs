@@ -1,5 +1,6 @@
 <%include partials/header%>
 <script src="/javascripts/bot.js"></script>
+<link rel="stylesheet" href="/stylesheets/botForm.css">
 
 <h3>This is the new route</h3>
 
@@ -7,9 +8,10 @@
 <div class="container">
     <form action="/create/new" method="POST">
 
-        <div class="botForm"></div>
-        <button type="button" onclick="addBotForm()">Bot Form +</button>
+        <div style="display: none" class="botForm"></div>
+        <button type="button" class="btn btn-info" onclick="addBotForm()">Bot Form +</button>
         <br><br>
+        
         <button type="submit">Submit</button>
 
     </form>

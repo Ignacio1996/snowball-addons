@@ -4,25 +4,28 @@ function addBotForm() {
     formNum = document.getElementsByClassName('botForm').length -1;
     var newBotForm = `
     <div class="botForm">
-    <div class="botText">
-        <h5>Bot Talks ${formNum }</h5>
-        <input class="botText${formNum}" style="display: block" type="text" value="Howdy! Im the bot${formNum}" name="bot[talk][${formNum}]">
-        <button type="button" onclick="addBotText(this)">Bot Text +</button>
+    <div class="botTalks">
+        <img src="/images/bot.png" >
+        <input  class="form-control  class="form-control botTalks${formNum}" style="display: block" type="text" value="Howdy! Im the bot${formNum}" name="bot[talk][${formNum}]" required>
+        <button class="btn btn-primary" type="button" class="btn btn-primary" onclick="addTextClone(this)">V</button>
     </div>
     
     <br>
 
     <div class="userForm">
-        <h5 >Student Button 1</h5>
-        <input style="display: block" type="text" value="Yes!"name="bot[student][decision][${formNum}]">
+        <h5 class="student-input">Student Button 1</h5>
+        <div class="student">
+            <input  class="form-control student-input"style="display: block" type="text" value="Yes!"name="bot[student][decision][${formNum}]">
+            <img class="student-input" style="margin: 0px" src="/images/user.png" >
+        </div>
         <br>
         <div class="botAnswers">
             <h5>Bot Answers ${formNum+1}</h5>
-            <input style="display: block" type="text" value="Great! Lets move forward!${formNum+1}"  name="bot[student][answer][${formNum}][0]">
-            <button type="button" onclick="addBotAnswer(this)">Bot Answer +</button>
+            <input  class="form-control"style="display: block" type="text" value="Great! Lets move forward!${formNum+1}"  name="bot[student][answer][${formNum}][0]">
+            <button class="btn btn-primary" type="button" onclick="addTextClone(this)">Bot Answer +</button>
         </div>
         <br>
-        <button type="button" onclick="addStudentForm(this)">Student Decision +</button>
+        <button class="btn btn-primary" type="button" onclick="addStudentForm(this)">Student Decision +</button>
     
     </div>
     <br>
@@ -33,22 +36,9 @@ function addBotForm() {
 
 }
 
-function addBotText(element) {
-    console.log("form num:", formNum);
-    
-    var newBotText = `
-        <input style="display: block" type="text" value="Ready to get started? ${formNum}" name="bot[talk][${formNum}]">`;
-    element.parentNode.insertAdjacentHTML('beforeend', newBotText);
-
-}
-
-function addBotAnswer(element){
-    console.log(element.parentNode);
-    var className = "userFormCount" + formNum;
-    var formCount = document.getElementsByClassName(className);
-    var newStudentAnswer = `
-        <input style="display: block" type="text" value="So sad!" name="bot[student][answer][${formNum}][${formCount.length }]">`
-    element.parentNode.insertAdjacentHTML('beforeend', newStudentAnswer);
+function addTextClone(element) {    
+    var newBotText = element.previousElementSibling.cloneNode(true);
+    element.parentNode.appendChild(newBotText);
 }
 
 
@@ -64,15 +54,15 @@ function addStudentForm(element){
     <div class="userForm">
         <div class="userFormCount${formNum}"
             <h5>Student Button 1</h5>
-            <input style="display: block" type="text" value="No" name="bot[student][decision][${formNum}]">
+            <input class="form-control" style="display: block" type="text" value="No" name="bot[student][decision][${formNum}]">
             <br>
             <div class="botAnswers">
                 <h5>Bot Answers 1</h5>
-                <input style="display: block" type="text" value="So sad! We will continue anyways"  name="bot[student][answer][${formNum}][${formCount.length +1}]">
-                <button type="button" onclick="addBotAnswer(this)">Bot Answer +</button>
+                <input class="form-control" style="display: block" type="text" value="So sad! We will continue anyways"  name="bot[student][answer][${formNum}][${formCount.length +1}]">
+                <button class="btn btn-primary" type="button" onclick="addTextClone(this)">Bot Answer +</button>
             </div>
             <br>
-            <button type="button" onclick="addStudentForm(this)">Student Decision +</button>
+            <button class="btn btn-primary" type="button" onclick="addStudentForm(this)">Student Decision +</button>
         </div>
     </div>`
     element.parentNode.insertAdjacentHTML('afterend', newStudentForm);

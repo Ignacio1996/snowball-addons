@@ -1,0 +1,24 @@
+.botTalks {
+    display: flex;
+}
+
+.form-control{
+    max-width: 50%;
+}
+
+.student-input{
+    margin-left: auto;
+    margin-right: 0;
+}
+
+img{
+    width: 50px;
+    height: 50px;
+    border-radius: 60%;
+    float: right;
+    display: flex;
+}
+
+.student{
+    display:flex;
+}
