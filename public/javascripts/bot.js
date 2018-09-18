@@ -1,5 +1,10 @@
 var formNum = 0;
 
+function updateScroll(){
+    var element = document.getElementById('scroller');
+    element.scrollTop = element.scrollHeight;
+}
+
 function addBotForm() {
     formNum = document.getElementsByClassName('botForm').length -1;
     var newBotForm = `
@@ -77,9 +82,5 @@ function addStudentForm(element){
 
 
 
-function updateScroll(){
-    var element = document.getElementById('scroller');
-    element.scrollTop = element.scrollHeight;
-}
 
-setInterval(updateScroll, 500);
+

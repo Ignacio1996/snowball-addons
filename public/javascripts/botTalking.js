@@ -1,5 +1,9 @@
 var interactionNumber = 0;
 
+function updateScroll(){
+    var element = document.getElementById('scroller');
+    element.scrollTop = element.scrollHeight;
+}
 
 // Button pressed displays answers
 // Also shows the next interaction
@@ -37,6 +41,7 @@ function displayAnswers(button) { //displays answers and next interaction
     Object.keys(botTextAnswers).forEach((key, n)=>{
         setTimeout(()=>{
             botTextAnswers[key].style.display = "inline-block";
+            updateScroll();
         }, 800 * n);
 
     })
@@ -49,6 +54,7 @@ function displayAnswers(button) { //displays answers and next interaction
         Object.keys(botDiv).forEach((key, n) => {
             setTimeout(() => {
                 botDiv[key].style.display = "";
+                updateScroll();
             }, 1000 * n);
             
         });
