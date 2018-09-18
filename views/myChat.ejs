@@ -35,7 +35,7 @@
             
                 <%for(var botResponse = 0; botResponse < isObjectOrString; botResponse++ ){%>
                 <!-- Student Choice Buttons Loop-->
-                <%var buttonWasObjectOrString = typeof chat[chatNum].student.decision[botText] === 'object' ? typeof chat[0].student.decision[botText][] %>
+                <%var buttonWasObjectOrString = typeof chat[chatNum].student.decision[botText] === 'object' ? chat[0].student.decision[botText][0] %>
                 <div class="choice">            
     <!--Buttons-->  <button onclick="displayAnswers(this)" class="btn btn-success" style="display: inline; margin: 5px"><%=chat[chatNum].student.decision[botText][botResponse]%></p></button>
                 </div>
