@@ -7,9 +7,6 @@
 <br>
 <h1>Conversation</h1>
 
-<!-- Welcome to Loop Hell -->
-<!-- Given my lack of knowledge on key value pairs, I did everything manually lol -->
-<!-- But as one very wise(???) coder once told me: "haha, whatever works man" -incognito -->
 
 <div class="container" id="scroller">
     <%for (let chatNum = 0; chatNum < chat.length; chatNum++){%>
@@ -17,25 +14,16 @@
             <div style="display: none" class="interaction">        
             <!-- Loops through each bot chat array -->
             <div class="bot">
-            <%var botIsObjectOrString = typeof chat[chatNum].talk[0] === 'object' ? chat[chatNum].talk[botText] : chat[chatNum].talk%>
-
-            <%console.log("Object or String?", botIsObjectOrString)%>
-            <%for (var botTextNum = 0; botTextNum < botIsObjectOrString.length; botTextNum++){ %>
-
-                <%var botWasObjectOrString = typeof botIsObjectOrString[0] === 'object' ? chat[chatNum].talk[botText][botTextNum] : chat[chatNum].talk %>
-    <!--Bot--> <p style="display: none" class="botText"><%=botWasObjectOrString%></p> <!--At array 0-->
-                <h5>Hard coded <%= chat[chatNum].talk[0].length%></h5>
+            <%for (var botTextNum = 0; botTextNum < chat[chatNum].talk[botText].length; botTextNum++){ %>
+    <!--Bot--> <p style="display: none" class="botText"><%=chat[chatNum].talk[botText][botTextNum]%></p> <!--At array 0-->
             <%}%>
             </div>
             <!-- Student Choices-->
             <!-- Should go in only one time to get corresponding text -->
             <div class="buttons">
             <%for (var studentResponse = 0; studentResponse < 1; studentResponse++){%>
-            <%var isObjectOrString = chat[chatNum].student.decision[chatNum] === 'object' ? chat[chatNum].student.decision[chatNum].length : chat[chatNum].student.decision.length %>
-            
-                <%for(var botResponse = 0; botResponse < isObjectOrString; botResponse++ ){%>
+                <%for(var botResponse = 0; botResponse < chat[chatNum].student.decision[chatNum].length; botResponse++ ){%>
                 <!-- Student Choice Buttons Loop-->
-                <%var buttonWasObjectOrString = typeof chat[chatNum].student.decision[botText] === 'object' ? chat[0].student.decision[botText][0] %>
                 <div class="choice">            
     <!--Buttons-->  <button onclick="displayAnswers(this)" class="btn btn-success" style="display: inline; margin: 5px"><%=chat[chatNum].student.decision[botText][botResponse]%></p></button>
                 </div>
