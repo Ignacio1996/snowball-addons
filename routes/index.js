@@ -27,7 +27,13 @@ router.get('/', function (req, res, next) {
   })
 });
 
-/*  */
+
+router.get('/index/debug', (req,res)=>{
+  Bot.find({}, (err, chat)=>{
+    res.render('debug', {chat: chat});
+
+  })
+})
 
 // New Route
 router.get('/new', (req, res) => {

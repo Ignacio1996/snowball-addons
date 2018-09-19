@@ -31,7 +31,7 @@
                     <!--Bot Answers to Buttons Loop  -->
                     <%for(var studentAnswer = 0; studentAnswer < 1; studentAnswer++){ %>
                         <div class="answer">
-                        <%for(var chatResponse = 0; chatResponse <= chat[chatNum].student.answer[botText][botResponse].length-1; chatResponse++){%>
+                        <%for(var chatResponse = 0; chatResponse < chat[chatNum].student.answer[botText][botResponse].length-1; chatResponse++){%>
     <!--Answers-->              <p class="botTextAnswer botText" style="display: none"><%=chat[chatNum].student.answer[botText][botResponse][chatResponse]%></p>
                     <%}%>
             </div>
