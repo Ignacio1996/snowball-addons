@@ -12,7 +12,6 @@ function addBotForm() {
     <div class="botTalks">
     <img class="bot-img" src="/images/bot.png" >
         <input  class="form-control botTalks${formNum}" type="text" value="Hey! Im the bot${formNum}" name="bot[talk][${formNum}]" required>
-        <input  class="form-control botTalks${formNum}" type="text" value="Hey! Im the bot${formNum}" name="bot[talk][${formNum}]" required>
         <button class="btn btn-primary" type="button" class="btn btn-primary" onclick="addTextClone(this)">+</button>
         </div>
     

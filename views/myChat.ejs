@@ -6,8 +6,12 @@
         <div style="display: none" class="interaction">        
             <!-- Loops through each bot chat array -->
             <div class="bot">
-                <%for (var botTextNum = 0; botTextNum < chat[chatNum].talk[botText].length; botTextNum++){ %>
+                <%if(typeof chat[chatNum].talk[botText] === 'string'){%>
+                    <!--Bot--> <p style="display: none" class="botText"><%=chat[chatNum].talk[botText]%></p> <!--At array 0-->
+                <%} else {%>
+                    <%for (var botTextNum = 0; botTextNum < chat[chatNum].talk[botText].length; botTextNum++){ %>
         <!--Bot--> <p style="display: none" class="botText"><%=chat[chatNum].talk[botText][botTextNum]%></p> <!--At array 0-->
+                    <%}%>
                 <%}%>
             </div>
             <!-- Student Choices-->
