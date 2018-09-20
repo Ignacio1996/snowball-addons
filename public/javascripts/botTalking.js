@@ -33,7 +33,7 @@ function displayAnswers(button) { //displays answers and next interaction
     //display next interaction
     setTimeout(()=>{
         interactions[interactionNumber].style.display = "block";
-    }, 1500);
+    }, 2000);
 
     //ANSWERS execution
     var botTextAnswers = button.parentNode.nextElementSibling.children;
