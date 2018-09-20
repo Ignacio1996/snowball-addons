@@ -30,21 +30,27 @@
             <p><%=chat.student.answer[chatText]%></p>
         <%} else {%>
             <!-- If answer is an object, print all of them -->
-            <%for (var response = 0; response < chat.student.answer.length; response++){%>
-                <p><%=chat.student.answer[chatText][response]%></p> <br>
+            <%for (var response = 0; response < chat.student.answer[chatText].length; response++){%>
+                <%for(var sentence = 0; sentence < chat.student.answer[chatText][response].length; sentence++){%>
+                    <p><%=chat.student.answer[chatText][response][sentence]%></p> <br>
+                <%}%>
+
+
             <%}%>
         <%}%>
     <%} %>
+
     <!-- If button is an object, it's more than one -->
     <% if(typeof chat.student.decision[chatText] === 'object') {%>
-        <%for (var decision = 0; decision < chat.student.decision[chatText].length; decision++ ){%>
-            <button><%=chat.student.decision[chatText][decision]%></button>
+        <%for (var choice = 0; choice < chat.student.decision[chatText].length; choice++ ){%>
+            <button><%=chat.student.decision[chatText][choice]%></button>
             <%if(typeof chat.student.answer[chatText] === 'string'){%>
                 <p><%=chat.student.answer[chatText]%></p>
             <%} else {%>
-                <%for (var response = 0; response < chat.student.answer.length; response++){%>
-                    <p><%=chat.student.answer[chatText][response]%></p> <br>
+                <%for (var response = 0; response < chat.student.answer[chatText].length; response++){%>
+                    <p><%=chat.student.answer[chatText][choice][response]%></p> <br>
                 <%}%>
+                
             <%}%>
         <%}%>
     <%}%>           
