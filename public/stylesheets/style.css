@@ -11,8 +11,13 @@ a {
 .container{
   overflow: auto;
   max-height: 60vh;
-  max-width: 100%;
+  
   margin-left: auto;
+}
+
+.chatBox{
+  box-shadow: 1px 1px 10px grey;
+  border-radius: 10px;
 }
 
 p{
