@@ -33,6 +33,7 @@ function displayAnswers(button) { //displays answers and next interaction
     //display next interaction
     setTimeout(()=>{
         interactions[interactionNumber].style.display = "block";
+        updateScroll();
     }, 2000);
 
     //ANSWERS execution
