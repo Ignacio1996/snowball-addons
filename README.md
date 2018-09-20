@@ -1,11 +1,7 @@
 This is a chatbot application in development.
 
-Admin should be able to dynamically generate a chatbot.
+It now works at it's most basic functionality. To see the fully working app, go here:
 
-Step 1
+https://mighty-headland-63172.herokuapp.com/
 
-Form functionality works in new2.ejs! The chatbot schema is generated in the backend with dynamic forms made with vanilla JS.
-
-Step 2
-
-Currently working on BOT UI dynamic forms
+It lets you create a semi-intelligent bot and chat with it. There is currently a sample uploaded.
