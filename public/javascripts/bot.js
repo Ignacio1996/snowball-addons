@@ -12,7 +12,7 @@ function addBotForm() {
     <div class="botTalks">
     <img class="bot-img" src="/images/bot.png" >
         <input  class="form-control botTalks${formNum}" type="text" value="Hey! Im the bot${formNum}" name="bot[talk][${formNum}]" required>
-        <input  class="form-control botTalks${formNum}" type="text" value="Ready to learn? ${formNum}" name="bot[talk][${formNum}]" required>
+        <input  class="form-control botTalks${formNum}" type="text" value="Hey! Im the bot${formNum}" name="bot[talk][${formNum}]" required>
         <button class="btn btn-primary" type="button" class="btn btn-primary" onclick="addTextClone(this)">+</button>
         </div>
     
@@ -67,7 +67,6 @@ function addStudentForm(element){
             <div class="botAnswers">
                 <img src="/images/bot.png" >
                 <input class="form-control" style="display: block" type="text" value="So sad!"  name="bot[student][answer][${formNum}][${formCount.length +1}]">
-                <input class="form-control" style="display: block" type="text" value="This is not too boring"  name="bot[student][answer][${formNum}][${formCount.length +1}]">
                 <button class="btn btn-primary" type="button" onclick="addTextClone(this)">+</button>
             </div>
             <br>

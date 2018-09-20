@@ -22,18 +22,18 @@
             <!-- Should go in only one time to get corresponding text -->
             <div class="buttons">
             <%for (var studentResponse = 0; studentResponse < 1; studentResponse++){%>
-            <!-- If it's a string, print one element -->
-            <!-- If it's an object, do the loop -->
+                <!-- If it's a string, print one element -->
+                <!-- If it's an object, do the loop -->
 
-            <%var buttonIsStringOrObject;%>
-            <!-- Student Choice Buttons Loop-->
-            <%if(typeof chat[chatNum].student.decision[botText] === 'string'){%>
-                <%console.log("This is a string!")%>
-                <%buttonIsStringOrObject = 1%>
-            <%} else {%>
-                <%console.log("This is an object!")%>
-                <%buttonIsStringOrObject = chat[chatNum].student.decision[botText].length;%>
-            <%}%>
+                <%var buttonIsStringOrObject;%>
+                <!-- Student Choice Buttons Loop-->
+                <%if(typeof chat[chatNum].student.decision[botText] === 'string'){%>
+                    <%console.log("This is a string!")%>
+                    <%buttonIsStringOrObject = 1%>
+                <%} else {%>
+                    <%console.log("This is an object!")%>
+                    <%buttonIsStringOrObject = chat[chatNum].student.decision[botText].length;%>
+                <%}%>
 
             <%for(var botResponse = 0; botResponse < buttonIsStringOrObject; botResponse++ ){%>
                 

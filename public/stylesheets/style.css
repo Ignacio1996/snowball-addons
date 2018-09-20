@@ -17,11 +17,12 @@ a {
 
 p{
   display: inline-block;
+  margin-bottom: 0px;
 }
 
 
 .userForm {
-  margin: 10px;
+  margin: 0px;
 }
 
 .btn{
