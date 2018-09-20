@@ -14,41 +14,32 @@
                 <p><%=chat.talk[chatText]%></p>
             <%} else {%>
                 <%for (paragraph in chat.talk[chatText]){%>
-                    <p><%=chat.talk[chatText][paragraph]%></p> 
+                    <p><%=chat.talk[chatText][paragraph]%></p> <br>
                 <%}%>
             <%}%>
     </div>
     
 
-    <%for (var studentResponse = 0; studentResponse < 1; studentResponse++){%>
+
         <!-- Buttons Loop -->
-            <div class="container">
-                
-                    <%if(typeof chat.student.decision[chatText] === 'string'){%>
-                        <!-- If it's a string, return the single value -->
-                        <button><%=chat.student.decision[chatText]%></button>
-                    <%} else {%>
-                        <%for(decision in chat.student.decision[chatText]){%>
-                            <!-- If it's an object, loop through every value -->
-                            <button><%=chat.student.decision[chatText][decision]%></button> <br>
-                        <%}%>
-                    <%}%>
-                
+        <!-- Loop through each button -->
+        <%if(typeof chat.student.decision[chatText] === 'string'){%>
+            <button><%=chat.student.decision[chatText]%></button>
+        <%} else {%>
+            <%for (var decision = 0; decision < chat.student.decision[chatText].length; decision++ ){%>
+                <button><%=chat.student.decision[chatText][decision]%></button>
+            <%}%>
+        <%}%>
         
-                <!-- Answers Loop -->
-                <h5>Answers</h5>
-                <div class="container">
-                        <%if (typeof chat.student.answer[chatText] === 'string'){%>
-                            <p><%=chat.student.answer[chatText]%></p>
-                        <%} else {%>
-                            <%for(answer in chat.student.answer[chatText]){%>
-                                <p><%=chat.student.answer[chatText][studentResponse][answer]%></p> <br>
-                            <%}%>
-                        <%}%>
-                </div>
-        
-            </div>
-    <%}%>
+            <!-- Loop through each answer -->
+        <%if(typeof chat.student.answer[chatText] === 'string'){%>
+            <p><%=chat.student.answer[chatText]%></p>
+        <%} else {%>
+            <%for (var response = 0; response < chat.student.answer.length; response++){%>
+                <p><%=chat.student.answer[chatText][response]%></p>
+            <%}%>
+        <%}%>
+    
     
 
     
