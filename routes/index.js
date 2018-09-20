@@ -35,16 +35,10 @@ router.get('/index/debug', (req,res)=>{
   })
 })
 
-// New Route
-router.get('/new', (req, res) => {
-  res.render('new');
-});
-
 //New 2 Route
 router.get('/new2', (req, res) => {
   res.render('new2');
 });
-
 
 //Create Route
 router.post('/create/new', (req, res) => {
@@ -63,6 +57,12 @@ router.post('/create/new', (req, res) => {
   res.redirect('/');
 });
 
+//Edit Route 
+router.get('/index/chat/:id/edit', (req,res)=>{
+  Bot.findById(req.params.id, (err, chat)=>{
+    res.render('edit', {chat:chat});
+  })
+})
 
 
 // Chat
