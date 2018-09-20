@@ -11,12 +11,12 @@
 <div class="container" id="scroller">
     <%for (let chatNum = 0; chatNum < chat.length; chatNum++){%>
         <%for (var botText = 0; botText < chat[chatNum].talk.length; botText++){%>
-            <div style="display: none" class="interaction">        
+        <div style="display: none" class="interaction">        
             <!-- Loops through each bot chat array -->
             <div class="bot">
-            <%for (var botTextNum = 0; botTextNum < chat[chatNum].talk[botText].length; botTextNum++){ %>
-    <!--Bot--> <p style="display: none" class="botText"><%=chat[chatNum].talk[botText][botTextNum]%></p> <!--At array 0-->
-            <%}%>
+                <%for (var botTextNum = 0; botTextNum < chat[chatNum].talk[botText].length; botTextNum++){ %>
+        <!--Bot--> <p style="display: none" class="botText"><%=chat[chatNum].talk[botText][botTextNum]%></p> <!--At array 0-->
+                <%}%>
             </div>
             <!-- Student Choices-->
             <!-- Should go in only one time to get corresponding text -->
@@ -25,14 +25,15 @@
             <!-- If it's a string, print one element -->
             <!-- If it's an object, do the loop -->
 
-                <%for(var botResponse = 0; botResponse < chat[chatNum].student.decision[botText].length; botResponse++ ){%>
+            <!-- Student Choice Buttons Loop-->
+            
+            <%for(var botResponse = 0; botResponse < chat[chatNum].student.decision[botText].length; botResponse++ ){%>
 
-                    <!-- Student Choice Buttons Loop-->
                     <div class="choice">            
         <!--Buttons-->  <button onclick="displayAnswers(this)" class="btn btn-success" style="display: inline; margin: 5px"><%=chat[chatNum].student.decision[botText][botResponse]%></p></button>
                     </div>
 
-                        <!--Bot Answers to Buttons Loop  -->
+                        <!--Bot Answers  -->
                         <%for(var studentAnswer = 0; studentAnswer < 1; studentAnswer++){ %>
                             <div class="answer">
                                 <!-- If string, print one element, else, loop and print all -->
