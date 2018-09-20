@@ -36,7 +36,6 @@
                         <%for(var studentAnswer = 0; studentAnswer < 1; studentAnswer++){ %>
                             <div class="answer">
                                 <!-- If string, print one element, else, loop and print all -->
-                               <% console.log("Answer", chat[chatNum].student.answer[botText][botResponse], "Type: ", typeof chat[chatNum].student.answer[botText][botResponse]) %>
                                 <%if(typeof chat[chatNum].student.answer[botText][botResponse] === 'string'){%>
                                     <!--Answers if it's a string-->              
                                     <p class="botTextAnswer botText" style="display: none"><%=chat[chatNum].student.answer[botText][botResponse]%></p>
