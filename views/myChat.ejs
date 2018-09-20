@@ -25,12 +25,24 @@
             <!-- If it's a string, print one element -->
             <!-- If it's an object, do the loop -->
 
+            <%var buttonIsStringOrObject;%>
             <!-- Student Choice Buttons Loop-->
-            
-            <%for(var botResponse = 0; botResponse < chat[chatNum].student.decision[botText].length; botResponse++ ){%>
+            <%if(typeof chat[chatNum].student.decision[botText] === 'string'){%>
+                <%console.log("This is a string!")%>
+                <%buttonIsStringOrObject = 1%>
+            <%} else {%>
+                <%console.log("This is an object!")%>
+                <%buttonIsStringOrObject = chat[chatNum].student.decision[botText].length;%>
+            <%}%>
 
+            <%for(var botResponse = 0; botResponse < buttonIsStringOrObject; botResponse++ ){%>
+                
                     <div class="choice">            
+                        <%if (typeof chat[chatNum].student.decision[botText] === 'string'){%>
+                            <!--Buttons-->  <button onclick="displayAnswers(this)" class="btn btn-success" style="display: inline; margin: 5px"><%=chat[chatNum].student.decision[botText]%></p></button>
+                        <%} else {%>
         <!--Buttons-->  <button onclick="displayAnswers(this)" class="btn btn-success" style="display: inline; margin: 5px"><%=chat[chatNum].student.decision[botText][botResponse]%></p></button>
+                        <%}%>
                     </div>
 
                         <!--Bot Answers  -->
