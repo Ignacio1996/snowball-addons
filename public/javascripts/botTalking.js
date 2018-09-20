@@ -33,7 +33,7 @@ function displayAnswers(button) { //displays answers and next interaction
     //display next interaction
     setTimeout(()=>{
         interactions[interactionNumber].style.display = "block";
-    }, 3000);
+    }, 1500);
 
     //ANSWERS execution
     var botTextAnswers = button.parentNode.nextElementSibling.children;
@@ -58,7 +58,7 @@ function displayAnswers(button) { //displays answers and next interaction
             }, 1000 * n);
             
         });
-    }, 3000);
+    }, 1500);
 }
 
 

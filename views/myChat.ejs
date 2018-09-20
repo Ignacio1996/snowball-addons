@@ -22,20 +22,35 @@
             <!-- Should go in only one time to get corresponding text -->
             <div class="buttons">
             <%for (var studentResponse = 0; studentResponse < 1; studentResponse++){%>
-                <%for(var botResponse = 0; botResponse < chat[chatNum].student.decision[chatNum].length; botResponse++ ){%>
-                <!-- Student Choice Buttons Loop-->
-                <div class="choice">            
-    <!--Buttons-->  <button onclick="displayAnswers(this)" class="btn btn-success" style="display: inline; margin: 5px"><%=chat[chatNum].student.decision[botText][botResponse]%></p></button>
-                </div>
+            <!-- If it's a string, print one element -->
+            <!-- If it's an object, do the loop -->
 
-                    <!--Bot Answers to Buttons Loop  -->
-                    <%for(var studentAnswer = 0; studentAnswer < 1; studentAnswer++){ %>
-                        <div class="answer">
-                        <%for(var chatResponse = 0; chatResponse < chat[chatNum].student.answer[botText][botResponse].length-1; chatResponse++){%>
-    <!--Answers-->              <p class="botTextAnswer botText" style="display: none"><%=chat[chatNum].student.answer[botText][botResponse][chatResponse]%></p>
-                    <%}%>
-            </div>
-                    <%}%>
+                <%for(var botResponse = 0; botResponse < chat[chatNum].student.decision[botText].length; botResponse++ ){%>
+
+                    <!-- Student Choice Buttons Loop-->
+                    <div class="choice">            
+        <!--Buttons-->  <button onclick="displayAnswers(this)" class="btn btn-success" style="display: inline; margin: 5px"><%=chat[chatNum].student.decision[botText][botResponse]%></p></button>
+                    </div>
+
+                        <!--Bot Answers to Buttons Loop  -->
+                        <%for(var studentAnswer = 0; studentAnswer < 1; studentAnswer++){ %>
+                            <div class="answer">
+                                <!-- If string, print one element, else, loop and print all -->
+                               <% console.log("Answer", chat[chatNum].student.answer[botText][botResponse], "Type: ", typeof chat[chatNum].student.answer[botText][botResponse]) %>
+                                <%if(typeof chat[chatNum].student.answer[botText][botResponse] === 'string'){%>
+                                    <!--Answers-->              
+                                    <%console.log("String!")%>
+                                    <p class="botTextAnswer botText" style="display: none"><%=chat[chatNum].student.answer[botText][botResponse]%></p>
+                                <%} else {%>
+                                    <%console.log("Object!")%>
+                                    <%for(var chatResponse = 0; chatResponse < chat[chatNum].student.answer[botText][botResponse].length; chatResponse++){%>
+                                        <!--Answers-->              <p class="botTextAnswer botText" style="display: none"><%=chat[chatNum].student.answer[botText][botResponse][chatResponse]%></p>
+                                    <%}%>
+                                <%}%>
+
+                            
+                </div>
+                        <%}%>
                 <%}%>
             <%}%>
             </div>
