@@ -38,13 +38,12 @@
                                 <!-- If string, print one element, else, loop and print all -->
                                <% console.log("Answer", chat[chatNum].student.answer[botText][botResponse], "Type: ", typeof chat[chatNum].student.answer[botText][botResponse]) %>
                                 <%if(typeof chat[chatNum].student.answer[botText][botResponse] === 'string'){%>
-                                    <!--Answers-->              
-                                    <%console.log("String!")%>
+                                    <!--Answers if it's a string-->              
                                     <p class="botTextAnswer botText" style="display: none"><%=chat[chatNum].student.answer[botText][botResponse]%></p>
                                 <%} else {%>
-                                    <%console.log("Object!")%>
                                     <%for(var chatResponse = 0; chatResponse < chat[chatNum].student.answer[botText][botResponse].length; chatResponse++){%>
-                                        <!--Answers-->              <p class="botTextAnswer botText" style="display: none"><%=chat[chatNum].student.answer[botText][botResponse][chatResponse]%></p>
+                                        <!--Answers if more than one string-->      
+                                        <p class="botTextAnswer botText" style="display: none"><%=chat[chatNum].student.answer[botText][botResponse][chatResponse]%></p>
                                     <%}%>
                                 <%}%>
 
