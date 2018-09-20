@@ -30,13 +30,13 @@
                 <button><%=chat.student.decision[chatText][decision]%></button>
             <%}%>
         <%}%>
-        
+
             <!-- Loop through each answer -->
         <%if(typeof chat.student.answer[chatText] === 'string'){%>
             <p><%=chat.student.answer[chatText]%></p>
         <%} else {%>
             <%for (var response = 0; response < chat.student.answer.length; response++){%>
-                <p><%=chat.student.answer[chatText][response]%></p>
+                <p><%=chat.student.answer[chatText][response]%></p> <br>
             <%}%>
         <%}%>
     
