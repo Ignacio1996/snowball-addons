@@ -5,17 +5,17 @@
 
 <h1>Edit</h1>
 
-<form action="/index/chat/<%=chat._id%>" method="POST">
+<form action="/index/chat/<%=chat._id%>/edit?_method=PUT" method="POST">
 
     <%for (chatText in chat.talk){%>
       <!-- BOT text Loop -->
       <h5>Bot</h5>
       <div class="container">
         <%if(typeof chat.talk[chatText] === 'string'){%>
-            <input type="text" value="<%=chat.talk[chatText]%>">
+            <input type="text" value="<%=chat.talk[chatText]%>" name="bot[talk][<%=chatText%>]">
         <%} else {%>
             <%for (paragraph in chat.talk[chatText]){%>
-                <input type="text" value="<%=chat.talk[chatText][paragraph]%>" name="">
+                <input type="text" value="<%=chat.talk[chatText][paragraph]%>" name="bot[talk][<%=chatText%>]">
                  <br>
             <%}%>
         <%}%>
@@ -28,18 +28,18 @@
         <%if(typeof chat.student.decision[chatText] === 'string'){%>
             <br>
             <h5>Button</h5>
-            <input type="text" value="<%=chat.student.decision[chatText]%>">
+            <input type="text" value="<%=chat.student.decision[chatText]%>" name="bot[student][decision][<%=chatText%>]">
             <br>
             
             <!-- Loop through each answer -->
             <!-- If answer is a string, it's just one -->
             <%if(typeof chat.student.answer[chatText] === 'string'){%>
-                <input type="text" value="<%=chat.student.answer[chatText]%>">
+                <input type="text" value="<%=chat.student.answer[chatText]%>" name="bot[student][answer][<%=chatText%>]">
             <%} else {%>
                 <!-- If answer is an object, print all of them -->
                 <%for (var response = 0; response < chat.student.answer[chatText].length; response++){%>
                     <%for(var sentence = 0; sentence < chat.student.answer[chatText][response].length; sentence++){%>
-                        <input type="text" value="<%=chat.student.answer[chatText][response][sentence]%>" >
+                        <input type="text" value="<%=chat.student.answer[chatText][response][sentence]%>" name="bot[student][answer][<%=chatText%>][<%=response%>]" >
                     <%}%>
     
     
@@ -51,13 +51,13 @@
         <% if(typeof chat.student.decision[chatText] === 'object') {%>
             <%for (var choice = 0; choice < chat.student.decision[chatText].length; choice++ ){%>
                 <h5>Button</h5>
-                <input type="text" value="<%=chat.student.decision[chatText][choice]%>">
+                <input type="text" value="<%=chat.student.decision[chatText][choice]%>" name="bot[student][decision][<%=chatText%>]">
                 <%if(typeof chat.student.answer[chatText] === 'string'){%>
-                    <input type="text" value="<%=chat.student.answer[chatText]%>">
+                    <input type="text" value="<%=chat.student.answer[chatText]%>" >
                 <%} else {%>
                     <%for (var response = 0; response < chat.student.answer[chatText].length; response++){%>
                         <h5>Answer</h5>
-                        <input type="text" value="<%=chat.student.answer[chatText][choice][response]%>">
+                        <input type="text" value="<%=chat.student.answer[chatText][choice][response]%>" name="bot[student][answer][<%=chatText%>][<%=response%>]">
                         <br>
                     <%}%>
                     
@@ -67,6 +67,7 @@
       </div>
     <%}%> <!-- End of chatText -->
 
+    <button type="submit">Submit</button>
 </form>
 
 

@@ -62,7 +62,23 @@ router.get('/index/chat/:id/edit', (req,res)=>{
   Bot.findById(req.params.id, (err, chat)=>{
     res.render('edit', {chat:chat});
   })
-})
+});
+
+// Update Route
+router.put('/index/chat/:id/edit', (req,res)=>{
+  var bot = req.body.bot;
+  Bot.findByIdAndUpdate(req.params.id, bot, function(err, updatedBot){
+    if (err) {
+      console.log(err);
+    } else {
+      console.log(updatedBot);
+    }
+  })
+    
+  console.log(bot);
+  res.redirect('/');
+
+});
 
 
 // Chat
