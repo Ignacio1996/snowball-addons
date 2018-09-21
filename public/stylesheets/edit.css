@@ -1,3 +1,8 @@
 button{
     display: block;
 }
+
+input{
+    width: 500px;
+    
+}
