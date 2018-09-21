@@ -38,11 +38,28 @@ function addBotForm() {
 
 }
 
+function removeInputContainer(event) {
+    event.target.parentNode.parentNode.removeChild(event.target.parentNode);
+}
+
 function addTextClone(element) {    
+    //Create container that can be removed at once when the remove button is clicked
+    var newInputContainer = document.createElement('div');
     var newBotText = element.previousElementSibling.cloneNode(true);
-    newBotText.style.display = "block";
+
+    //Create remove button for each input
+    var removeButton = document.createElement('button');
+    removeButton.classList.add('btn', 'btn-danger');
+    removeButton.setAttribute('type', 'button');
+    removeButton.addEventListener('click', removeInputContainer);
+    removeButton.textContent = "-";
+
+    // newBotText.style.display = "block";
     newBotText.value = "";
-    element.parentNode.insertBefore(newBotText, element.nextSibling);
+
+    newInputContainer.appendChild(newBotText);
+    newInputContainer.appendChild(removeButton);
+    element.parentNode.appendChild(newInputContainer);
 }
 
 
