@@ -18,8 +18,8 @@ function addBotForm() {
 
         <div class="userForm">
             <div class="student">
-                <img class="student-img" src="/images/user.png" >
-                <input  class="form-control student-input" style="display: inline" type="text" value="Yes!"name="bot[student][decision][${formNum}]">
+            <img class="student-img" src="/images/user.png" >
+            <input  class="form-control student-input" style="display: inline" type="text" value="Yes!"name="bot[student][decision][${formNum}]">
             </div>
             <br>
             <div class="botAnswers">

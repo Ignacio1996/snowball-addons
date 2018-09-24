@@ -35,14 +35,31 @@ img{
 }
 
 .student{
-    display:block;
-    box-shadow: -1px -1px 10px 0.5px grey;
+    display:inline;
     background-color: lightblue;
+    margin: 10px;
+    margin-left: auto;
 }
+
+.student input{
+    background-color: lightblue;
+    margin-left: auto;
+    margin-right: 0px
+}
+
+.student p{
+    margin-left: auto;
+    margin-right: 0px;
+}
+.userForm input{
+    margin-left: auto;
+    margin-right: 0px;
+}
+
 
 .student-img{
     margin-left: auto;
-    margin-right: 0;
+    margin-right: 0px;
 }
 
 .student-button{

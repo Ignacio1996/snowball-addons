@@ -13,8 +13,6 @@
       <div class="botForm">
 
       <div class="botTalks">
-        <img class="bot-img" src="/images/bot.png" >
-
         <%if(typeof chat.talk[chatText] === 'string'){%>
             <input class="form-control" type="text" value="<%=chat.talk[chatText]%>" name="bot[talk][<%=chatText%>]">
             
@@ -32,7 +30,6 @@
       <div class="userForm">
         <!-- If button is a string, it's just one -->
 
-
         <%var isObjectOrString ;%>
         <%if(typeof chat.student.decision[chatText] === 'string'){%>
             <%isObjectOrString = 1%>
@@ -46,8 +43,12 @@
             <div class="userForm">
                 
                 <%if (typeof chat.student.decision[chatText] === 'string'){%>
-                    <input class="form-control" type="text" value="<%=chat.student.decision[chatText]%>" name="bot[student][decision][<%=chatText%>]"> 
-                    <br>
+                    <div class="student">
+                        <input class="form-control" type="text" value="<%=chat.student.decision[chatText]%>" name="bot[student][decision][<%=chatText%>]"> 
+                        <br>
+
+                    </div> 
+
                 
 
                 <%if(typeof chat.student.answer[chatText][button] === 'string'){%>
@@ -65,17 +66,20 @@
 
                 <!-- Decision is an object -->
             <%} else {%>
+                <div class="student">
                     <input class="form-control" type="text" value="<%=chat.student.decision[chatText][button]%>" name="bot[student][decision][<%=chatText%>]">
+                </div>
 
                     <%if(typeof chat.student.answer[chatText][button] === 'string'){%>
                         <input class="form-control" type="text" value="<%=chat.student.answer[chatText][button]%>" name="bot[student][answer][<%=chatText%>][<%=button%>]">
                         
                         <%} else {%>
                             
-                            <%for (sentence in chat.student.answer[chatText]){ %>
+                            <%for (sentence in chat.student.answer[chatText][button]){ %>
                                 <input class="form-control" type="text" value="<%=chat.student.answer[chatText][button][sentence]%>" name="bot[student][answer][<%=chatText%>][<%=button%>]">
-                                <%}%>
-                                <button class="btn btn-primary" type="button" onclick="addTextClone(this)">+</button>
+                            <%}%>
+
+                                <button class="btn btn-primary userForm" type="button" onclick="addTextClone(this)">+</button>
                     <%}%>
                
             <%}%>
