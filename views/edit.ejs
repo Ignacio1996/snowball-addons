@@ -3,7 +3,7 @@
 
 <link rel="stylesheet" href="/stylesheets/edit.css">
 
-
+<h1>Edit</h1>
 
 <form action="/index/chat/<%=chat._id%>/edit?_method=PUT" method="POST">
 
@@ -25,48 +25,43 @@
       <!-- Loop through each button -->
       <div class="container">
         <!-- If button is a string, it's just one -->
-        <%if(typeof chat.student.decision[chatText] === 'string'){%>
+
+        <%for(button in chat.student.decision[chatText]){%>
+            <!-- Decision is a string -->
             
-            <br>
-            <h5>Button</h5>
-            <input type="text" value="<%=chat.student.decision[chatText]%>" name="bot[student][decision][<%=chatText%>]">
-            <br>
-            
-            <!-- Loop through each answer -->
-            <!-- If answer is a string, it's just one -->            
-            <%if(typeof chat.student.answer[chatText] === 'string'){%>
-                <input type="text" value="<%=chat.student.answer[chatText]%>" name="bot[student][answer][<%=chatText%>]">
-                <h1>This is a string</h1>
-            <%} else {%>
-                <!-- If answer is an object, print all of them -->
-                <%for (var response = 0; response < chat.student.answer[chatText].length; response++){%>
-                    <%for(var sentence = 0; sentence < chat.student.answer[chatText][response].length; sentence++){%>
-                        <input type="text" value="<%=chat.student.answer[chatText][response][sentence]%>" name="bot[student][answer][<%=chatText%>][<%=response%>]" >
-                    <%}%>
-    
-    
-                <%}%>
-            <%}%>
-        <%} %>
-    
-        <!-- If button is an object, it's more than one -->
-        <% if(typeof chat.student.decision[chatText] === 'object') {%>
-            <h1>object!</h1>
-            <%for (var choice = 0; choice < chat.student.decision[chatText].length; choice++ ){%>
-                <h5>Button</h5>
-                <input type="text" value="<%=chat.student.decision[chatText][choice]%>" name="bot[student][decision][<%=chatText%>]">
-                <%if(typeof chat.student.answer[chatText] === 'string'){%>
-                    <input type="text" value="<%=chat.student.answer[chatText]%>" >
-                <%} else {%>
-                    <%for (var response = 0; response < chat.student.answer[chatText].length; response++){%>
-                        <h5>Answer</h5>
-                        <input type="text" value="<%=chat.student.answer[chatText][choice][response]%>" name="bot[student][answer][<%=chatText%>][<%=response%>]">
-                        <br>
-                    <%}%>
+            <%if (typeof chat.student.decision[chatText] === 'string'){%>
+                
+                <input type="text" value="<%=chat.student.decision[chatText]%>" name="bot[student][decision][<%=chatText%>]">
+
+                <%if(typeof chat.student.answer[chatText][button] === 'string'){%>
+                    <input type="text" value="<%=chat.student.answer[chatText][button]%>">
                     
+                    <%} else {%>
+                        <%for (sentence in chat.student.answer[chatText][button]){ %>
+                            <input type="text" value="<%= chat.student.answer[chatText][button][sentence]%>">
+                        <%}%>
+                        
+                        
+                <%}%>
+
+                <!-- Decision is an object -->
+            <%} else {%>
+                <%for(choice in chat.student.decision[chatText][button]){%>
+                    <input type="text" value="<%=chat.student.decision[chatText][choice]%>">
+
+                    <%if(typeof chat.student.answer[chatText][button] === 'string'){%>
+                        <input type="text" value="<%=chat.student.answer[chatText][button]%>">
+                        
+                        <%} else {%>
+                            
+                            <%for (sentence in chat.student.answer[chatText]){ %>
+                                <input type="text" value="<%=chat.student.answer[chatText][button][sentence]%>">
+                                
+                            <%}%>
+                    <%}%>
                 <%}%>
             <%}%>
-        <%}%>           
+        <%}%>
       </div>
     <%}%> <!-- End of chatText -->
 

@@ -1,6 +1,6 @@
 <%include partials/header%>
 
-
+<%=chat%>
 
 <div class="container chatBox" id="scroller">
     <%for (let chatNum = 0; chatNum < chat.length; chatNum++){%>
@@ -16,6 +16,7 @@
                     <%}%>
                 <%}%>
             </div>
+            
             <!-- Student Choices-->
             <!-- Should go in only one time to get corresponding text -->
             <div class="buttons">
