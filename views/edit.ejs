@@ -3,7 +3,7 @@
 
 <link rel="stylesheet" href="/stylesheets/edit.css">
 
-<h1>Edit</h1>
+
 
 <form action="/index/chat/<%=chat._id%>/edit?_method=PUT" method="POST">
 
@@ -39,7 +39,6 @@
                 <h1>This is a string</h1>
             <%} else {%>
                 <!-- If answer is an object, print all of them -->
-                <h1>This is an object</h1>
                 <%for (var response = 0; response < chat.student.answer[chatText].length; response++){%>
                     <%for(var sentence = 0; sentence < chat.student.answer[chatText][response].length; sentence++){%>
                         <input type="text" value="<%=chat.student.answer[chatText][response][sentence]%>" name="bot[student][answer][<%=chatText%>][<%=response%>]" >
@@ -52,6 +51,7 @@
     
         <!-- If button is an object, it's more than one -->
         <% if(typeof chat.student.decision[chatText] === 'object') {%>
+            <h1>object!</h1>
             <%for (var choice = 0; choice < chat.student.decision[chatText].length; choice++ ){%>
                 <h5>Button</h5>
                 <input type="text" value="<%=chat.student.decision[chatText][choice]%>" name="bot[student][decision][<%=chatText%>]">
