@@ -19,7 +19,7 @@
         <%} else {%>
             <%for (paragraph in chat.talk[chatText]){%>
                 <input class="form-control" type="text" value="<%=chat.talk[chatText][paragraph]%>" name="bot[talk][<%=chatText%>]">
-                 <br>
+                 
             <%}%>
         <%}%>
         <button class="btn btn-primary" type="button" class="btn btn-primary" onclick="addTextClone(this)">+</button>
@@ -45,7 +45,7 @@
                 <%if (typeof chat.student.decision[chatText] === 'string'){%>
                     <div class="student">
                         <input class="form-control" type="text" value="<%=chat.student.decision[chatText]%>" name="bot[student][decision][<%=chatText%>]"> 
-                        <br>
+                        
 
                     </div> 
 
@@ -72,6 +72,8 @@
 
                     <%if(typeof chat.student.answer[chatText][button] === 'string'){%>
                         <input class="form-control" type="text" value="<%=chat.student.answer[chatText][button]%>" name="bot[student][answer][<%=chatText%>][<%=button%>]">
+                        <button class="btn btn-primary" type="button" class="btn btn-primary" onclick="addTextClone(this)">+</button>
+
                         
                         <%} else {%>
                             

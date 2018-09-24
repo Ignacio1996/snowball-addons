@@ -33,7 +33,7 @@ function addBotForm() {
         </div>
     <br>
     </div>`;
-    var currentForm = document.getElementsByClassName('botForm')[formNum ];
+    var currentForm = document.getElementsByClassName('botForm')[formNum];
     currentForm.insertAdjacentHTML('afterend', newBotForm);
 
 }
@@ -56,6 +56,8 @@ function addTextClone(element) {
 
     newBotText.style.display = "inline";
     newBotText.value = "";
+    
+    newInputContainer.classList.add('addedText');
 
     newInputContainer.appendChild(newBotText);
     newInputContainer.appendChild(removeButton);
