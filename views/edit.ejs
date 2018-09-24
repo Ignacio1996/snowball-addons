@@ -44,7 +44,7 @@
                 <input type="text" value="<%=chat.student.decision[chatText]%>" name="bot[student][decision][<%=chatText%>]">
 
                 <%if(typeof chat.student.answer[chatText][button] === 'string'){%>
-                    <input type="text" value="<%=chat.student.answer[chatText][button]%>" name="bot[student][answer][<%=chatText%>]">
+                    <input type="text" value="<%=chat.student.answer[chatText][button]%>" name="bot[student][answer][<%=chatText%>][<%=button%>]">
                     
                     <%} else {%>
                         <%for (sentence in chat.student.answer[chatText][button]){ %>
@@ -59,12 +59,12 @@
                     <input type="text" value="<%=chat.student.decision[chatText][button]%>" name="bot[student][decision][<%=chatText%>]">
 
                     <%if(typeof chat.student.answer[chatText][button] === 'string'){%>
-                        <input type="text" value="<%=chat.student.answer[chatText][button]%>" name="bot[student][answer][<%=chatText%>]">
+                        <input type="text" value="<%=chat.student.answer[chatText][button]%>" name="bot[student][answer][<%=chatText%>][<%=button%>]">
                         
                         <%} else {%>
                             
                             <%for (sentence in chat.student.answer[chatText]){ %>
-                                <input type="text" value="<%=chat.student.answer[chatText][button][sentence]%>" name="bot[student][decision][<%=chatText%>][<%=sentence%>]">
+                                <input type="text" value="<%=chat.student.answer[chatText][button][sentence]%>" name="bot[student][answer][<%=chatText%>][<%=button%>]">
                             <%}%>
                     <%}%>
                
