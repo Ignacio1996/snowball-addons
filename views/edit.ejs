@@ -1,7 +1,7 @@
 <%include partials/header%>
 
 
-<link rel="stylesheet" href="/stylesheets/edit.css">
+<link rel="stylesheet" href="/stylesheets/botForm.css">
 
 <h1>Edit</h1>
 <script></script>
@@ -10,22 +10,28 @@
 
     <%for (chatText in chat.talk){%>
 <!-- BOT text Loop -->
-      <h5>Bot</h5>
-      <div class="container">
+      <div class="botForm">
+
+      
+
+      <div class="botTalks">
+        <img class="bot-img" src="/images/bot.png" >
+
         <%if(typeof chat.talk[chatText] === 'string'){%>
-            <input type="text" value="<%=chat.talk[chatText]%>" name="bot[talk][<%=chatText%>]">
+            <input class="form-control" type="text" value="<%=chat.talk[chatText]%>" name="bot[talk][<%=chatText%>]">
             
         <%} else {%>
             <%for (paragraph in chat.talk[chatText]){%>
-                <input type="text" value="<%=chat.talk[chatText][paragraph]%>" name="bot[talk][<%=chatText%>]">
+                <input class="form-control" type="text" value="<%=chat.talk[chatText][paragraph]%>" name="bot[talk][<%=chatText%>]">
                  <br>
             <%}%>
         <%}%>
+        <button class="btn btn-primary" type="button" class="btn btn-primary" onclick="addTextClone(this)">+</button>
       </div>
     
 <!-- Buttons Loop -->
       <!-- Loop through each button -->
-      <div class="container">
+      <div class="userForm">
         <!-- If button is a string, it's just one -->
 
 
@@ -39,38 +45,47 @@
 
         <%for(var button = 0; button < isObjectOrString; button++){%>
             <!-- Decision is a string -->
-            
-            <%if (typeof chat.student.decision[chatText] === 'string'){%>
-                <input type="text" value="<%=chat.student.decision[chatText]%>" name="bot[student][decision][<%=chatText%>]">
+            <div class="userForm">
+                
+                <%if (typeof chat.student.decision[chatText] === 'string'){%>
+                    <input class="form-control" type="text" value="<%=chat.student.decision[chatText]%>" name="bot[student][decision][<%=chatText%>]"> 
+                    <br>
+                
 
                 <%if(typeof chat.student.answer[chatText][button] === 'string'){%>
-                    <input type="text" value="<%=chat.student.answer[chatText][button]%>" name="bot[student][answer][<%=chatText%>][<%=button%>]">
+                    
+                    <input class="form-control" type="text" value="<%=chat.student.answer[chatText][button]%>" name="bot[student][answer][<%=chatText%>][<%=button%>]">
                     
                     <%} else {%>
                         <%for (sentence in chat.student.answer[chatText][button]){ %>
-                            <input type="text" value="<%= chat.student.answer[chatText][button][sentence]%>" name="bot[student][answer][<%=chatText%>]">
+                            <input class="form-control" type="text" value="<%= chat.student.answer[chatText][button][sentence]%>" name="bot[student][answer][<%=chatText%>]">
                         <%}%>
+                        <button class="btn btn-primary" type="button" onclick="addTextClone(this)">+</button>
                         
-                        
+                    
                 <%}%>
 
                 <!-- Decision is an object -->
             <%} else {%>
-                    <input type="text" value="<%=chat.student.decision[chatText][button]%>" name="bot[student][decision][<%=chatText%>]">
+                    <input class="form-control" type="text" value="<%=chat.student.decision[chatText][button]%>" name="bot[student][decision][<%=chatText%>]">
 
                     <%if(typeof chat.student.answer[chatText][button] === 'string'){%>
-                        <input type="text" value="<%=chat.student.answer[chatText][button]%>" name="bot[student][answer][<%=chatText%>][<%=button%>]">
+                        <input class="form-control" type="text" value="<%=chat.student.answer[chatText][button]%>" name="bot[student][answer][<%=chatText%>][<%=button%>]">
                         
                         <%} else {%>
                             
                             <%for (sentence in chat.student.answer[chatText]){ %>
-                                <input type="text" value="<%=chat.student.answer[chatText][button][sentence]%>" name="bot[student][answer][<%=chatText%>][<%=button%>]">
-                            <%}%>
+                                <input class="form-control" type="text" value="<%=chat.student.answer[chatText][button][sentence]%>" name="bot[student][answer][<%=chatText%>][<%=button%>]">
+                                <%}%>
+                                <button class="btn btn-primary" type="button" onclick="addTextClone(this)">+</button>
                     <%}%>
                
             <%}%>
-        <%}%>
+            </div>
+        <%}%>  <!-- End of Button -->
+        
       </div>
+    </div>
     <%}%> <!-- End of chatText -->
 
     <button type="submit">Submit</button>

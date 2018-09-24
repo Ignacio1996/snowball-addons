@@ -9,28 +9,28 @@ function addBotForm() {
     formNum = document.getElementsByClassName('botForm').length -1;
     var newBotForm = `
     <div class="botForm">
-    <div class="botTalks">
-    <img class="bot-img" src="/images/bot.png" >
-        <input  class="form-control botTalks${formNum}" type="text" style="display: inline" value="Hey! Im the bot${formNum}" name="bot[talk][${formNum}]" required>
-        <button class="btn btn-primary" type="button" class="btn btn-primary" onclick="addTextClone(this)">+</button>
+        <div class="botTalks">
+            <img class="bot-img" src="/images/bot.png" >
+            <input  class="form-control botTalks${formNum}" type="text" style="display: inline" value="Hey! Im the bot${formNum}" name="bot[talk][${formNum}]" required>
+            <button class="btn btn-primary" type="button" class="btn btn-primary" onclick="addTextClone(this)">+</button>
         </div>
         <br>
 
-    <div class="userForm">
-        <div class="student">
-            <img class="student-img" src="/images/user.png" >
-            <input  class="form-control student-input" style="display: inline" type="text" value="Yes!"name="bot[student][decision][${formNum}]">
+        <div class="userForm">
+            <div class="student">
+                <img class="student-img" src="/images/user.png" >
+                <input  class="form-control student-input" style="display: inline" type="text" value="Yes!"name="bot[student][decision][${formNum}]">
+            </div>
+            <br>
+            <div class="botAnswers">
+                <img class="bot-img" src="/images/bot.png" >
+                <input  class="form-control"style="display: inline" type="text" value="Great! Lets move forward!${formNum+1}"  name="bot[student][answer][${formNum}][0]">
+                <button class="btn btn-primary" type="button" onclick="addTextClone(this)">+</button>
+            </div>
+            <br>
+            <button class="btn btn-primary ml-auto" type="button" onclick="addStudentForm(this)">Student Decision +</button>
+        
         </div>
-        <br>
-        <div class="botAnswers">
-            <img class="bot-img" src="/images/bot.png" >
-            <input  class="form-control"style="display: inline" type="text" value="Great! Lets move forward!${formNum+1}"  name="bot[student][answer][${formNum}][0]">
-            <button class="btn btn-primary" type="button" onclick="addTextClone(this)">+</button>
-        </div>
-        <br>
-        <button class="btn btn-primary ml-auto" type="button" onclick="addStudentForm(this)">Student Decision +</button>
-    
-    </div>
     <br>
     </div>`;
     var currentForm = document.getElementsByClassName('botForm')[formNum ];
