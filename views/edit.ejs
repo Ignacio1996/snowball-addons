@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="/stylesheets/edit.css">
 
 <h1>Edit</h1>
-<script src="javascripts/bot.js"></script>
+<script></script>
 
 <form action="/index/chat/<%=chat._id%>/edit?_method=PUT" method="POST">
 
@@ -44,11 +44,11 @@
                 <input type="text" value="<%=chat.student.decision[chatText]%>" name="bot[student][decision][<%=chatText%>]">
 
                 <%if(typeof chat.student.answer[chatText][button] === 'string'){%>
-                    <input type="text" value="<%=chat.student.answer[chatText][button]%>" name="bot[student][answer][<%=chatText%>]>
+                    <input type="text" value="<%=chat.student.answer[chatText][button]%>">
                     
                     <%} else {%>
                         <%for (sentence in chat.student.answer[chatText][button]){ %>
-                            <input type="text" value="<%= chat.student.answer[chatText][button][sentence]%>" name="bot[student][decision][<%=chatText%>]>
+                            <input type="text" value="<%= chat.student.answer[chatText][button][sentence]%>">
                         <%}%>
                         
                         
@@ -59,12 +59,12 @@
                     <input type="text" value="<%=chat.student.decision[chatText][button]%>">
 
                     <%if(typeof chat.student.answer[chatText][button] === 'string'){%>
-                        <input type="text" value="<%=chat.student.answer[chatText][button]%>" name="">
+                        <input type="text" value="<%=chat.student.answer[chatText][button]%>">
                         
                         <%} else {%>
                             
                             <%for (sentence in chat.student.answer[chatText]){ %>
-                                <input type="text" value="<%=chat.student.answer[chatText][button][sentence]%>" name="">
+                                <input type="text" value="<%=chat.student.answer[chatText][button][sentence]%>">
                             <%}%>
                     <%}%>
                
