@@ -1,4 +1,4 @@
-var formNum = 0;
+var formNum;
 
 function updateScroll(){
     var element = document.getElementById('scroller');
