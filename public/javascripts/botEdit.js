@@ -6,9 +6,10 @@ function updateScroll(){
 }
 
 function addBotForm() {
-    formNum = document.getElementsByClassName('botForm').length -1;
+    formNum = document.getElementsByClassName('botForm').length;
     var newBotForm = `
     <div class="botForm">
+    <button class="btn btn-danger" onclick="removeParent(this)">X</button>
         <div class="botTalks">
             <img class="bot-img" src="/images/bot.png" >
             <input  class="form-control botTalks${formNum}" type="text" style="display: inline" value="Hey! Im the bot${formNum}" name="bot[talk][${formNum}]" required>
@@ -33,9 +34,13 @@ function addBotForm() {
         </div>
     <br>
     </div>`;
-    var currentForm = document.getElementsByClassName('botForm')[formNum];
+    var currentForm = document.getElementsByClassName('botForm')[formNum-1];
     currentForm.insertAdjacentHTML('afterend', newBotForm);
 
+}
+
+function removeParent(el){
+  el.parentNode.remove();
 }
 
 function removeInputContainer(event) {
