@@ -12,6 +12,10 @@ iframe{
     margin: 5px;
 }
 
+#excel{
+    max-width: 100%;
+}
+
 #game{
     background-color: white;
     height: 50%;
