@@ -1,0 +1,86 @@
+<% include ../partials/header %>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+<link rel="stylesheet" href="/stylesheets/budget.css">
+<script type="text/javascript" src="./budget.js"></script>
+
+<h1>Budgeting Simulator</h1>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6" id="google-sheet">
+            <iframe src="https://docs.google.com/spreadsheets/d/1pLdoazB-yi4r7-CJS8821Qb-ikPTlWbCKOQe0Eow5B0/edit?usp=sharing" frameborder="0"></iframe>
+        </div>
+        <div class="col-md-6">
+            <div class="game" id="game">
+                <div class="container">
+                <h1>January</h1>
+                <br>
+                    <h5>Your friends want to go out for Korean BBQ, it's around $30 all you can eat! What will you do?</h5>
+                </div>
+                <div class="buttons container">
+                    <button class="btn btn-outline-primary btn-block">Go!</button>
+                    <button class="btn btn-outline-primary btn-block">Stay at home and cook some dinner</button>
+                    <button class="btn btn-outline-primary btn-block">Suggest Chick-fil-A</button>
+                    
+                    <h1>Consequence</h1>
+                </div>
+
+            </div>
+            <div class="chart" id="chart">
+                <canvas id="myChart"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+var ctx = document.getElementById("myChart").getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: ["January", "February", "March", "April", "May", "June"],
+        datasets: [{
+            label: 'Expenses',
+            data: [12, 19, 3, 5, 2, 3],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255,99,132,1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        },
+        {
+            label: 'Income',
+            data: [23,21,17,3,16,12],
+            backgroundColor:[
+
+                'rgba(75, 192, 192, 0.2)'
+            ]
+        }],
+        
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        }
+    }
+});
+</script>
+
+<% include ../partials/footer %>

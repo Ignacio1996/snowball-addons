@@ -105,4 +105,9 @@ router.delete('/index/chat/delete/:id', (req,res)=>{
   })
 });
 
+// Budget Routes
+router.get('/index/budget', (req,res)=>{
+  res.render("./budget/budget");
+})
+
 module.exports = router;

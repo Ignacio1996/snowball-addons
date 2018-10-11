@@ -1,22 +1,36 @@
 <%include partials/header%>
-    <h1>Welcome to my Chatbot!</h1>
-    <p>Press <span> <strong>chat</strong></span> to talk with him!</p>
-    <br>
-    <a class="btn btn-primary" href="/index/chat">Chat</a>
-    <br><br>
-    <a class="btn btn-success" href="/new2">New bot V2</a>
-    <h5>Display Available Interactions</h5>
-    <%chat.forEach(function(chat, n){%>
-      <div style="display: flex">
-        <a style="display: block" href="/index/<%=chat._id%>">Chat <%=n%></a>  
 
-        <form action="/index/chat/delete/<%=chat._id%>?_method=delete" method="POST">
-            <button  class="btn btn-warning btn-sm" type="submit">-</button>
-        </form>
-        <a href="/index/chat/<%=chat._id%>/edit">Edit</a>
-      </div>
-    
-      <%});%>
-  </body>
+<h1>Welcome to my Chatbot!</h1>
+<p>Press <span> <strong>chat</strong></span> to talk with him!</p>
+<br>
+<a class="btn btn-primary" href="/index/chat">Chat</a>
+<br><br>
+<a class="btn btn-success" href="/new2">New bot V2</a>
+<h5>Display Available Interactions</h5>
+<%chat.forEach(function(chat, n){%>
+<div style="display: flex">
+  <a style="display: block" href="/index/<%=chat._id%>">Chat
+    <%=n%></a>
+
+  <form action="/index/chat/delete/<%=chat._id%>?_method=delete" method="POST">
+    <button class="btn btn-warning btn-sm" type="submit">-</button>
+  </form>
+  <a href="/index/chat/<%=chat._id%>/edit">Edit</a>
+</div>
+
+<%});%>
+<br>
+
+<h5>Budgeting Simulator</h5>
+<a href="/index/budget" class="btn btn-outlile-primary">Go!</a>
+
+
+
+
+
+
+
+</body>
+
 </html>
 <%include partials/footer%>
