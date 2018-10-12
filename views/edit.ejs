@@ -2,6 +2,7 @@
 
 
 <link rel="stylesheet" href="/stylesheets/botForm.css">
+<script src="/javascripts/botEdit.js"></script>
 
 <h1>Edit</h1>
 <script></script>
@@ -11,20 +12,22 @@
     <%for (chatText in chat.talk){%>
 <!-- BOT text Loop -->
       <div class="botForm">
-
+        <%if (chatText != 0){%>
+          <button class="btn btn-danger" onclick="removeParent(this)">X</button>
+        <%}%>
       <div class="botTalks">
         <%if(typeof chat.talk[chatText] === 'string'){%>
             <input class="form-control" type="text" value="<%=chat.talk[chatText]%>" name="bot[talk][<%=chatText%>]">
-            
+
         <%} else {%>
             <%for (paragraph in chat.talk[chatText]){%>
                 <input class="form-control" type="text" value="<%=chat.talk[chatText][paragraph]%>" name="bot[talk][<%=chatText%>]">
-                 
+
             <%}%>
         <%}%>
         <button class="btn btn-primary" type="button" class="btn btn-primary" onclick="addTextClone(this)">+</button>
       </div>
-    
+
 <!-- Buttons Loop -->
       <!-- Loop through each button -->
       <div class="userForm">
@@ -41,28 +44,22 @@
         <%for(var button = 0; button < isObjectOrString; button++){%>
             <!-- Decision is a string -->
             <div class="userForm">
-                
+
                 <%if (typeof chat.student.decision[chatText] === 'string'){%>
                     <div class="student">
-                        <input class="form-control" type="text" value="<%=chat.student.decision[chatText]%>" name="bot[student][decision][<%=chatText%>]"> 
-                        
-
-                    </div> 
-
-                
+                        <input class="form-control" type="text" value="<%=chat.student.decision[chatText]%>" name="bot[student][decision][<%=chatText%>]">
+                    </div>
 
                 <%if(typeof chat.student.answer[chatText][button] === 'string'){%>
-                    
+
                     <input class="form-control" type="text" value="<%=chat.student.answer[chatText][button]%>" name="bot[student][answer][<%=chatText%>][<%=button%>]">
-                    
+
                     <%} else {%>
                         <%for (sentence in chat.student.answer[chatText][button]){ %>
                             <input class="form-control" type="text" value="<%= chat.student.answer[chatText][button][sentence]%>" name="bot[student][answer][<%=chatText%>]">
                         <%}%>
-                        <button class="btn btn-primary" type="button" onclick="addTextClone(this)">+</button>
-                        
-                    
                 <%}%>
+                        <button class="btn btn-primary" type="button" onclick="addTextClone(this)">+</button>
 
                 <!-- Decision is an object -->
             <%} else {%>
@@ -74,20 +71,20 @@
                         <input class="form-control" type="text" value="<%=chat.student.answer[chatText][button]%>" name="bot[student][answer][<%=chatText%>][<%=button%>]">
                         <button class="btn btn-primary" type="button" class="btn btn-primary" onclick="addTextClone(this)">+</button>
 
-                        
+
                         <%} else {%>
-                            
+
                             <%for (sentence in chat.student.answer[chatText][button]){ %>
                                 <input class="form-control" type="text" value="<%=chat.student.answer[chatText][button][sentence]%>" name="bot[student][answer][<%=chatText%>][<%=button%>]">
                             <%}%>
+                            <button class="btn btn-primary userForm" type="button" onclick="addTextClone(this)">+</button>
 
-                                <button class="btn btn-primary userForm" type="button" onclick="addTextClone(this)">+</button>
                     <%}%>
-               
+
             <%}%>
             </div>
         <%}%>  <!-- End of Button -->
-        
+
       </div>
     </div>
     <%}%> <!-- End of chatText -->
