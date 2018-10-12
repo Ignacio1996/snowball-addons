@@ -4,7 +4,7 @@
 <script type="text/javascript" src="./budget.js"></script>
 
 <h1>Budgeting Simulator</h1>
-<div class="container-fluid">
+<div class="container">
     <div class="row">
         <div class="col-md-6" id="google-sheet">
             <iframe src="https://docs.google.com/spreadsheets/d/1pLdoazB-yi4r7-CJS8821Qb-ikPTlWbCKOQe0Eow5B0/edit?usp=sharing" frameborder="0"></iframe>
@@ -15,12 +15,12 @@
                 <div class="container">
                 <h1>January</h1>
                 <br>
-                    <h5>Your friends want to go out for Korean BBQ, it's around $30 all you can eat! What will you do?</h5>
+                    <h5 id="situation">Your friends want to go out for Korean BBQ, it's around $30 all you can eat! What will you do?</h5>
                 </div>
                 <div class="buttons container">
-                    <button class="btn btn-outline-primary btn-block">Go!</button>
-                    <button class="btn btn-outline-primary btn-block">Stay at home and cook some dinner</button>
-                    <button class="btn btn-outline-primary btn-block">Suggest Chick-fil-A</button>
+                    <button class="btn btn-outline-primary btn-block" class="options" onclick="updateValue(this)" >Go!</button>
+                    <button class="btn btn-outline-primary btn-block" class="options" onclick="updateValue(this)" >Stay at home and cook some dinner</button>
+                    <button class="btn btn-outline-primary btn-block" class="options" onclick="updateValue(this)" >Suggest Chick-fil-A</button>
                 </div>
 
                 <h3>Consequence</h3>
@@ -32,6 +32,61 @@
         </div>
     </div>
 </div>
+
+<script>
+    var situationNumber = 0;
+    
+    
+    
+    const decision = [
+        {
+            situation: "Your friends want Korean BBQ, it's $30 for all you can eat. What will you do?",
+            options: [
+                {
+                   option: "Go!"
+                },
+                {
+                   option: "Dont go!"
+                },
+                {
+                   option: "Suggest Chick-Fil-A"
+                }
+            ]
+        },
+        
+        {
+            situation: "Your friends want Korean BBQ",
+            options: [
+                {
+                    option: "Ewwww"
+                },
+                {
+                    option: "Works"
+                },
+                {
+                    option: "I'm lovin it"
+                }
+            ]
+        }
+        
+    ]
+    
+    function updateValue(){
+        const situation = document.getElementById('situation');
+        const options = document.getElementsByClassName('options');
+        Object.keys(options).forEach((option)=>{
+            // console.log(decision[situationNumber].options)
+            options[option].innerHTML = decision[situationNumber].options[option].option;
+        })
+
+        situation.innerHTML = decision[situationNumber].situation;
+        
+        
+        situationNumber++;
+    }
+    console.log(decision);
+
+</script>
 
 
 <script>
